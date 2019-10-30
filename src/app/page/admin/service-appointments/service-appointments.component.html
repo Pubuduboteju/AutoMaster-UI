@@ -1,0 +1,168 @@
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Service Appointments</b></div>
+  <div>
+    <table class="table vehicleMaintenanceTable">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Service Stn</th>
+        <th>Stn Address</th>
+        <th>Service Required</th>
+        <th>Sender Email</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <!--<form class="validate-form" novalidate [formGroup]="newCommentForm">-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="userName" placeholder="User Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="vehicleName" placeholder="Vehicle Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="comment" placeholder="Write Your Comment">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--</form>-->
+      </tr>
+      <tr *ngFor="let serviceAppointment of serviceAppointments">
+        <td>{{serviceAppointment.id}}</td>
+        <!--<td><img style=" width: 70px; height: 50px;" class=" img-responsive rounded" [src]="adminCar.image" alt="Card image cap"></td>-->
+        <td>{{serviceAppointment.userName}}</td>
+        <td>{{serviceAppointment.stationName}}</td>
+        <td>{{serviceAppointment.stationAddress}}</td>
+        <td>{{serviceAppointment.serviceRequired}}</td>
+        <td>{{serviceAppointment.senderEmail}}</td>
+        <!--<td style="padding-left: 80px;">-->
+          <!--<span style="color: green" *ngIf="!generalUserMessage.isReplied"><i class="fas fa-check"></i></span>-->
+          <!--<span style="color: blue" *ngIf="generalUserMessage.isReplied"><i class="fas fa-check-double"></i></span>-->
+        <!--</td>-->
+        <td><div class="btn-group">
+          <button style="" [attr.data-target]="'#viewMoreModel' + serviceAppointment.id" data-toggle="modal" class="btn btn-outline-info ">
+            <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+            <i class="fas fa-eye"></i>
+          </button>
+          <!--<button style="" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+            <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+            <!--<i class="fas fa-reply-all"></i>-->
+          <!--</button>-->
+          <button style="" (click)="deleteSelectedServiceAppointment(serviceAppointment.id)"  class="btn btn-outline-danger">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div></td>
+
+        <!--Model-starts from here-->
+        <div class="modal fade" id="viewMoreModel{{serviceAppointment.id}}" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div style="background-color: #1b1e21; color: white;" class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{serviceAppointment.userName}} - {{serviceAppointment.serviceRequired}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span style="color: white" aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--<div class=""><img class="img-fluid" src="../../../../assets/images/toyota-2019-highlander-hybrid-blizzard-pearl-l.jpg"></div>-->
+                <p>From :{{serviceAppointment.userName}}</p>
+                <p>Service Station: {{serviceAppointment.stationName}}</p>
+                <p>Station Address: {{serviceAppointment.stationAddress}}</p>
+                <p>Service required: {{serviceAppointment.serviceRequired}}</p>
+                <p>Other details: {{serviceAppointment.otherDetails}}</p>
+                <p>Sender Email: {{serviceAppointment.senderEmail}}</p>
+                <p>Sender Phone No.: {{serviceAppointment.phoneNo}}</p>
+              </div>
+              <div class="modal-footer">
+                <!--<button style="" data-dismiss="modal" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+                  <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+                  <!--<i class="fas fa-reply-all"></i> Reply-->
+                <!--</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+                <!--class="btn btn-primary">Create-->
+                <!--</button>-->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--Model ends-->
+
+        <!--Reply Model-starts from here-->
+        <!--<div class="modal fade replyModal" id="replyModal{{generalUserMessage.id}}" tabindex="-1" role="dialog" aria-labelledby="createCarModel"-->
+             <!--aria-hidden="true">-->
+          <!--<div class="modal-dialog" role="document">-->
+            <!--<div style="background-color: #1b1e21; color: white;" class="modal-content">-->
+              <!--<div class="modal-header">-->
+                <!--<h5 class="modal-title" id="exampleModalLabel">Reply Message to {{generalUserMessage.firstName}}</h5>-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                  <!--<span style="color: white" aria-hidden="true">&times;</span>-->
+                <!--</button>-->
+              <!--</div>-->
+              <!--<div class="modal-body">-->
+                <!--&lt;!&ndash;<div class=""><img class="img-fluid" src="../../../../assets/images/toyota-2019-highlander-hybrid-blizzard-pearl-l.jpg"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>To : {{generalUserMessage.email}}</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>From : automastervehicleconsultancy@gmail.com</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>{{generalUserMessage.message}}</p>&ndash;&gt;-->
+                <!--<form class="validate-form form-group" novalidate [formGroup]="generalUserMessageReplyForm">-->
+                  <!--<div class="form-group col-auto">-->
+                    <!--<input hidden formControlName="firstName" value="{{generalUserMessage.firstName}}">-->
+                    <!--<input hidden formControlName="lastName" value="{{generalUserMessage.lastName}}">-->
+                    <!--<label class="sr-only" for="inlineFormInputGroup">To</label>-->
+                    <!--<div class="input-group mb-2">-->
+                      <!--<div class="input-group-prepend">-->
+                        <!--<div  class="input-group-text replyMessageInputPrefix">To :</div>-->
+                      <!--</div>-->
+                      <!--<input type="text" class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="email" value="{{generalUserMessage.email}}" placeholder="Recipient's email address">-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="form-group col-auto">-->
+                    <!--<label class="sr-only" for="inlineFormInputGroup">From</label>-->
+                    <!--<div class="input-group mb-2">-->
+                      <!--<div class="input-group-prepend">-->
+                        <!--<div  class="input-group-text replyMessageInputPrefix">From :</div>-->
+                      <!--</div>-->
+                      <!--<input disabled type="text" class="form-control replyMessageInput" id="inlineFormInputGroup" placeholder="" value="automastervehicleconsultancy@gmail.com">-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="form-group col-auto">-->
+                    <!--<label class="sr-only" for="inlineFormInputGroup">Subject</label>-->
+                    <!--<div class="input-group mb-2">-->
+                      <!--<div class="input-group-prepend">-->
+                        <!--<div  class="input-group-text replyMessageInputPrefix">Subject :</div>-->
+                      <!--</div>-->
+                      <!--<input class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="subject" value="{{generalUserMessage.subject}}" placeholder="Enter subject here">-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="form-group col-auto">-->
+                    <!--<label class="sr-only" for="inlineFormInputGroup">Message</label>-->
+                    <!--<div class="input-group mb-2">-->
+                      <!--<div class="input-group-prepend">-->
+                        <!--<div class="input-group-text replyMessageInputPrefix">Message :</div>-->
+                      <!--</div>-->
+                      <!--<textarea style="height: 100px;" class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="message"  placeholder="Enter message here"> &#45;&#45;Best Regards</textarea>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</form>-->
+              <!--</div>-->
+              <!--<div class="modal-footer">-->
+                <!--&lt;!&ndash;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>&ndash;&gt;-->
+                <!--<button (click)="onSendGeneralUserMessageReply(generalUserMessageReplyForm.value, generalUserMessage)" [disabled]="!generalUserMessageReplyForm.valid"  type="button"-->
+                        <!--class="btn btn-success btn-rounded buttonRound"><i class="fas fa-paper-plane"></i>-->
+                <!--</button>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+        <!--</div>-->
+
+        <!--Reply Model ends-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

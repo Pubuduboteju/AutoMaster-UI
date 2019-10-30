@@ -1,0 +1,48 @@
+<router-outlet></router-outlet>
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Vehicle Maintenance</b></div>
+  <div>
+    <table class="table vehicleMaintenanceTable">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Vehicle Image</th>
+        <th>Vehicle Model</th>
+        <th>Vehicle Number</th>
+        <th>Maintenance Schedule</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <!--<form class="validate-form" novalidate [formGroup]="newCommentForm">-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="userName" placeholder="User Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="vehicleName" placeholder="Vehicle Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="comment" placeholder="Write Your Comment">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--</form>-->
+      </tr>
+      <tr *ngFor="let userCar of userCars">
+        <td>{{userCar.id}}</td>
+        <td><img style=" width: 70px; height: 50px;" class=" img-responsive rounded" [src]="userCar.image" alt="Card image cap"></td>
+        <td>{{userCar.vehicleModel}}</td>
+        <td>{{userCar.vehicleNumber}}</td>
+        <td><div class="">
+          <button style="" (click)="goToMaintenanceSchedule(userCar.id)"  class="btn btn-outline-info my-2 my-sm-0">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Maintenance Schedule
+          </button>
+          <!--<button style="background-color: #1b1e21; color: white" (click)="goToMaintenanceSchedule(userCar.id)"  class="btn btn-primary">-->
+            <!--<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>-->
+            <!--Maintenance Schedule-->
+          <!--</button>-->
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<div ng-app="myApp" ng-controller="myCtrl">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Register New Vehicle</b></div>
+  <div *ngIf="info.token">
+    <form novalidate [formGroup]="registerUserCarsForm">
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input disabled="disabled" type="text" class="form-control" id="userName" formControlName="userName" aria-describedby="userNameHelp" placeholder="Enter User Name">
+        <small id="userNameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="vehicleModel">Vehicle Model</label>
+        <input type="text" class="form-control" id="vehicleModel" formControlName="vehicleModel" aria-describedby="vehicleModelHelp" placeholder="Enter Vehicle Model">
+        <small id="vehicleModelHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="vehicleMake">Vehicle Make</label>
+        <input type="text" class="form-control" id="vehicleMake" formControlName="vehicleMake" aria-describedby="vehicleMakeHelp" placeholder="Enter Vehicle Make">
+        <small id="vehicleMakeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="modelYear">Model Year</label>
+        <input type="text" class="form-control" id="modelYear" formControlName="modelYear" aria-describedby="modelYearHelp" placeholder="Enter Model Year">
+        <small id="modelYearHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="bodyType">Body Type</label>
+        <input type="text" class="form-control" id="bodyType" formControlName="bodyType" aria-describedby="bodyTypeHelp" placeholder="Enter Body Type">
+        <small id="bodyTypeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="engineCapacity">Engine Capacity</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="engineCapacity" formControlName="engineCapacity" aria-describedby="engineCapacityHelp" placeholder="Enter Engine Capacity">
+          <div  class="input-group-append">
+            <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">cc</span>
+          </div>
+        </div>
+        <small id="engineCapacityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="transmission">Transmission</label>
+        <select class="browser-default custom-select form-control" id="transmission" formControlName="transmission">
+          <option selected>Select vehicle transmission</option>
+          <option value="manual">Manual</option>
+          <option value="automatic">Automatic</option>
+          <option value="triptronic">Triptronic</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fuelType">Fuel Type</label>
+        <select class="browser-default custom-select form-control" id="fuelType" formControlName="fuelType">
+          <option selected>Select fuel type</option>
+          <option value="Petrol">Petrol</option>
+          <option value="diesel">Diesel</option>
+          <option value="hybrid">Hybrid</option>
+          <option value="electric">Electric</option>
+          <option value="petrolTurbo">Petrol turbo</option>
+          <option value="dieselTurbo">Diesel turbo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="chassisNumber">Chassis Number</label>
+        <input type="text" class="form-control" id="chassisNumber" formControlName="chassisNumber" aria-describedby="chassisNumberHelp" placeholder="Enter Chassis Number">
+        <small id="chassisNumberHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="vehicleNumber">Vehicle Number</label>
+        <input type="text" class="form-control" id="vehicleNumber" formControlName="vehicleNumber" aria-describedby="vehicleNumberHelp" placeholder="Enter Vehicle Number">
+        <small id="vehicleNumberHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="registeredYear">Registered Year</label>
+        <input type="text" class="form-control" id="registeredYear" formControlName="registeredYear" aria-describedby="registeredYearHelp" placeholder="Enter Registered Year">
+        <small id="registeredYearHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="currentMileage">Current Mileage</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="currentMileage" formControlName="currentMileage" aria-describedby="currentMileageHelp" placeholder="Enter Current Mileage">
+          <div  class="input-group-append">
+            <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+          </div>
+        </div>
+        <small id="currentMileageHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="lastEngineOilChange">Last Engine Oil Change</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="lastEngineOilChange" formControlName="lastEngineOilChange" aria-describedby="lastEngineOilChangeHelp" placeholder="Enter Last Engine Oil Change">
+          <div  class="input-group-append">
+            <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+          </div>
+        </div>
+        <small id="lastEngineOilChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="lastEngineOilFilterChange">Last Engine Oil Filter Change</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="lastEngineOilFilterChange" formControlName="lastEngineOilFilterChange" aria-describedby="lastEngineOilFilterChangeHelp" placeholder="Enter Last Engine Oil Filter Change">
+          <div  class="input-group-append">
+            <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+          </div>
+        </div>
+        <small id="lastEngineOilFilterChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="lastGearOilChange">Last Gear Oil Change</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="lastGearOilChange" formControlName="lastGearOilChange" aria-describedby="clastGearOilChangeHelp" placeholder="Enter Last Gear Oil Change">
+          <div  class="input-group-append">
+            <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+          </div>
+        </div>
+        <small id="lastGearOilChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="file">Upload Vehicle Image</label>
+        <input (change)="fileChange($event)" formControlName="file" type="file" class="form-control" id="file"
+               placeholder="Upload Vehicle Image">
+      </div>
+
+      <!--<div class="form-group">-->
+        <!--<label for="exampleInputPassword1">Password</label>-->
+        <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+      <!--</div>-->
+      <!--<div class="form-check">-->
+        <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+        <!--<label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+      <!--</div>-->
+      <div>
+        <button style=" margin-right: 200px" (click)="onRegisterNewUserCar(registerUserCarsForm.value)" [disabled]="!registerUserCarsForm.valid" type="button"
+                class="btn btn-outline-success float-right">Register Vehicle
+        </button>
+      </div>
+      <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+    </form>
+  </div>
+</div>

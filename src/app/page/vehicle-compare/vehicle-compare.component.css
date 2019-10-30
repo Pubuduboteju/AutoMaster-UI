@@ -1,0 +1,73 @@
+select{
+  background-color: #1b1e21;
+  color: white;
+}
+
+div.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0px;
+  background-color: black;
+  z-index: 2;
+}
+div.sticky2{
+  position: -webkit-sticky;
+  position: sticky;
+  top:77px;
+  /*background-color: black;*/
+  z-index: 2;
+}
+#menu-outer {
+  height: 78px;
+}
+
+/*.table {*/
+/*display: table;   !* Allow the centering to work *!*/
+/*margin: 0 auto;*/
+/*}*/
+
+ul#horizontal-list {
+  min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+}
+ul#horizontal-list li {
+  display: inline;
+}
+
+ul#horizontal-list button{
+  background-color: #1b1e21;
+  color: white;
+}
+
+.carCompareShadow{
+  /*width: 500px;*/
+  /*background: #fff;*/
+  /*background-color: #1b1e21;*/
+  border-radius: 5px;
+  overflow: hidden;
+
+  /*box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+  /*-moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+  /*-webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+  /*-o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+  /*-ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+
+  box-shadow: 0 3px 10px 0px rgba(128, 128, 128, 0.4);
+  -moz-box-shadow: 0 3px 10px 0px rgba(128, 128, 128, 0.4);
+  -webkit-box-shadow: 0 3px 10px 0px rgba(128,128, 128, 0.4);
+  -o-box-shadow: 0 3px 10px 0px rgba(128, 128, 128, 0.4);
+  -ms-box-shadow: 0 3px 10px 0px rgba(128, 128, 128, 0.4);
+}
+
+@font-face {
+  font-family: TESLA;
+  src: url('../nav-bar/fonts/tesla/TESLA.ttf');
+}
+#vehicleCompareCarName{
+  font-family: TESLA;
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-top: 13px;
+  /*font-size: 15px;*/
+}

@@ -1,0 +1,305 @@
+
+<!--<br>-->
+<div style="padding: 0px!important; width: 1364px;" id="caro" class="row">
+  <app-carousel></app-carousel>
+</div>
+<!--Sticky bar-->
+<div class="row sticky container" style="position: sticky; padding-left: 200px;overflow:hidden!important;">
+  <nav style="padding-bottom: 0px;" class="navbar navbar-expand-lg ">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto topnav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="" onClick="document.getElementById('caro').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-home"></i> Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="" onClick="document.getElementById('carsInTheSystem').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-info-circle"></i> Vehicle details</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="" onClick="document.getElementById('latestCars').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-haykal"></i> Upcoming Vehicles</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="" onClick="document.getElementById('googleMap').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-object-ungroup"></i> Service stations</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="" onClick="document.getElementById('latestNews').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-newspaper"></i> Latest Vehicle News</a>
+        </li>
+        <li  class="nav-item active">
+          <a class="nav-link" routerLink="" onClick="document.getElementById('stayInTouch').scrollIntoView({behavior: 'smooth'});"><i class="fab fa-rocketchat"></i> Stay in touch</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!--Sticky bar ends-->
+
+<div class="container">
+
+  <!--<div style="padding: 0px!important;" class="row">-->
+    <!--<app-carousel></app-carousel>-->
+  <!--</div>-->
+  <!--<div class="row sticky" style="position: sticky; padding-left: 100px;">-->
+    <!--<nav style="padding-bottom: 0px;" class="navbar navbar-expand-lg ">-->
+      <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+        <!--<ul class="navbar-nav mr-auto topnav">-->
+          <!--<li class="nav-item active">-->
+            <!--<a class="nav-link" routerLink="/home"><i class="fas fa-home"></i> Home<span class="sr-only">(current)</span></a>-->
+          <!--</li>-->
+          <!--<li class="nav-item active">-->
+            <!--<a class="nav-link" routerLink="" onClick="document.getElementById('carsInTheSystem').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-info-circle"></i> Vehicle details</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item active">-->
+            <!--<a class="nav-link" routerLink="/vehicle-compare"><i class="fas fa-object-ungroup"></i> Compare and contrast</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item active">-->
+            <!--<a class="nav-link" routerLink="/vehicle-problems"><i class="fas fa-exclamation-triangle"></i> Vehicle issues/Problems</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item active">-->
+            <!--<a class="nav-link" routerLink="" onClick="document.getElementById('latestNews').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-user-cog"></i> Latest Vehcle News</a>-->
+          <!--</li>-->
+          <!--<li  class="nav-item active">-->
+            <!--<a class="nav-link" routerLink="" onClick="document.getElementById('stayInTouch').scrollIntoView({behavior: 'smooth'});"><i class="fab fa-rocketchat"></i> Stay in touch</a>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</nav>-->
+  <!--</div>-->
+  <br>
+  <div class="row" id="carsInTheSystem" style="max-height: 1000px; overflow-y: auto">
+    <br>
+    <br>
+    <app-car-card *ngFor="let car of cars" [car]="car"></app-car-card>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="row" style="padding: 0px!important; min-width: 1364px;max-width: 1364px;overflow:hidden; background-color:#24252a; height: 600px;" id="latestCars">
+<app-latest-cars></app-latest-cars>
+
+</div>
+
+<!--------------Google map start writing from here------------>
+
+<!--<div class="row" style="padding: 0px!important; max-width: 1364px;overflow:hidden; height: 600px;" id="googleMap">-->
+<div style="padding-top: 60px;" id="googleMap">
+<h4>Select your city to find nearby vehicle stations</h4>
+<select id="ms_series" name="ms_series" (change)="stationsOnChange($event.target.value)" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 300px; background-color: black; color: white">
+  <option>Service Station</option>
+  <option style="width: 60px;color: white" *ngFor="let serviceStationsData of serviceStationNames" [value]="serviceStationsData">{{serviceStationsData}}</option>
+</select>
+  <agm-map [latitude]='latitude' [longitude]='longitude'
+           [mapTypeId]='mapType'  [zoom]="12">
+    <agm-marker  *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude"  (mouseOver)="onMouseOver(infoWindow,$event)">
+      <agm-info-window [disableAutoPan]="false" #infoWindow>
+
+        <div style="color: black">
+          <h4>{{marker.stationName}}</h4>
+        </div>
+        <!--<div style="color: black">-->
+          <!--<a (click)="onClickInfoView({id:ddd})" class="btn btn-attention pull-right">Make an appointment <i class="fa fa-angle-double-right"></i></a>-->
+        <!--</div>-->
+        <div *ngIf="authority == 'user'">
+          <button style="" data-target="#serviceAppointmentModal" (click)="createServiceAppointmentMessageForm(marker)"  data-toggle="modal" class="btn btn-outline-info ">
+            <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+            <i class="fas fa-calendar-check"></i> Make an appointment  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          </button>
+        </div>
+
+
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+<!--</div>-->
+</div>
+
+<!--Service Appointment Model-starts from here-->
+<div class="modal fade replyModal" id="serviceAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h4 style="text-transform: capitalize" class="modal-title" id="exampleModalLabel"> Request Service Appointment from {{stationName}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div align="center" style="text-align: center" *ngIf="!serviceRequestView">
+        <br>
+        <i style="font-size: 50px;" class="fas fa-map-marker-alt"></i>
+        <br>
+        <h3><b>{{stationName}}</b></h3>
+        <br>
+        <div style="max-width: 150px!important; margin-left: 170px;">
+          <i>{{stationAddress}}</i>
+        </div>
+
+        <br>
+        <span><i class="fas fa-phone-square-alt"></i> {{stationPhoneNo}}</span>
+        <br>
+        <br>
+        <button (click)="serviceRequestViewMake()"  type="button"
+                class="btn btn-success btn-rounded buttonRound"><i class="fas fa-paper-plane"></i> Request an appoinment
+        </button>
+        <br>
+        <br>
+
+      </div>
+      <div *ngIf="serviceRequestView" class="modal-body">
+        <p style="color: white">*
+          Request a Service Appointment
+          Complete and submit the form and your Toyota dealer will contact you to confirm the date and time of your appointment. </p>
+        <!--<div class=""><img class="img-fluid" src="../../../../assets/images/toyota-2019-highlander-hybrid-blizzard-pearl-l.jpg"></div>-->
+        <!--<p>To : {{generalUserMessage.email}}</p>-->
+        <!--<p>From : automastervehicleconsultancy@gmail.com</p>-->
+        <!--<p>{{generalUserMessage.message}}</p>-->
+        <form class="validate-form form-group" novalidate [formGroup]="serviceAppointmentMessageForm">
+          <div class="form-group col-auto">
+            <!--<input hidden formControlName="firstName" value="">-->
+            <!--<input hidden formControlName="userName" value="{{userName}}">-->
+            <label class="sr-only" for="inlineFormInputGroup">Name</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div  class="input-group-text replyMessageInputPrefix">Name* :</div>
+              </div>
+              <input type="text" style="text-transform: capitalize" class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="userName" value="{{userName}}" placeholder="Recipient's email address">
+            </div>
+          </div>
+          <div class="form-group col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Email</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div  class="input-group-text replyMessageInputPrefix">Email* :</div>
+              </div>
+              <input type="text" class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="email" placeholder="Enter your email here" value="">
+            </div>
+          </div>
+          <div class="form-group col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Phone No</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div  class="input-group-text replyMessageInputPrefix">Phone No* :</div>
+              </div>
+              <input class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="phoneNo" value="" placeholder="Enter your phone number here">
+            </div>
+          </div>
+          <div class="form-group col-auto">
+            <label style="max-width: 100px!important;" class="sr-only" for="inlineFormInputGroup">Service Required</label>
+            <div class="input-group mb-2">
+              <div style="max-width: 100px!important;" class="input-group-prepend">
+                <div  class="input-group-text replyMessageInputPrefix">Service <br> Required* :</div>
+              </div>
+              <input style="height: 60px;" class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="serviceRequired" value="" placeholder="Enter service you need">
+            </div>
+          </div>
+          <div class="form-group col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Other details</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text replyMessageInputPrefix">Other details :</div>
+              </div>
+              <textarea style="height: 100px;" class="form-control replyMessageInput" id="inlineFormInputGroup" formControlName="otherDetails"  placeholder="Enter other details here"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div *ngIf="serviceRequestView" class="modal-footer">
+        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+        <button (click)="onRequestServiceAppointment(serviceAppointmentMessageForm.value)" [disabled]="!serviceAppointmentMessageForm.valid"  type="button"
+                class="btn btn-success btn-rounded buttonRound"><i class="fas fa-paper-plane"></i> Request an appoinment
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--Service Appointment Model ends-->
+
+<!----------------Google map end writing from here----------------->
+
+<div class="row" style="padding: 0px!important; max-width: 1364px;overflow:hidden" id="latestNews">
+<app-vehicle-news></app-vehicle-news>
+</div>
+
+<div class="row" style="padding: 0px!important; max-width: 1364px;overflow:hidden" id="stayInTouch">
+<app-stay-in-touch></app-stay-in-touch>
+</div>
+
+<!--<a class="float" data-target="#createCarModel" data-toggle="modal" style="color:white; background-color:#026926">-->
+  <!--<i class="fa fa-plus my-float "></i>-->
+<!--</a>-->
+
+
+<!--Model-->
+<div class="modal fade" id="createCarModel" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form novalidate [formGroup]="createCarForm">
+          <div class="form-group">
+            <label for="vehicleModel">Vehicle Model</label>
+            <input type="text" class="form-control" id="vehicleModel" formControlName="vehicleModel"
+                   placeholder="Vehicle Model">
+          </div>
+          <div class="form-group">
+            <label for="vehicleMake">Vehicle Make</label>
+            <input type="text" class="form-control" id="vehicleMake" formControlName="vehicleMake"
+                   placeholder="Vehicle Make">
+          </div>
+          <div class="form-group">
+            <label for="trim_edition">Trim/Edition</label>
+            <input formControlName="trim_edition" type="text" class="form-control" id="trim_edition"
+                   placeholder="Trim/Edition">
+          </div>
+          <div class="form-group">
+            <label for="modelYear">Model Year</label>
+            <input formControlName="modelYear" type="" class="form-control" id="modelYear"
+                   placeholder="Model Year">
+          </div>
+          <div class="form-group">
+            <label for="bodyType">Body Type</label>
+            <input formControlName="bodyType" type="text" class="form-control" id="bodyType"
+                   placeholder="Body Type">
+          </div>
+          <div class="form-group">
+            <label for="engineCapacity">Engine Capacity</label>
+            <input formControlName="engineCapacity" type="text" class="form-control" id="engineCapacity"
+                   placeholder="Engine Capacity">
+          </div>
+          <div class="form-group">
+            <label for="transmission">Transmission</label>
+            <input formControlName="transmission" type="text" class="form-control" id="transmission"
+                   placeholder="Transmission">
+          </div>
+          <div class="form-group">
+            <label for="fuelType">Fuel Type</label>
+            <input formControlName="fuelType" type="text" class="form-control" id="fuelType"
+                   placeholder="Fuel Type">
+          </div>
+          <div class="form-group">
+            <label for="file">File</label>
+            <input (change)="fileChange($event)" formControlName="file" type="file" class="form-control" id="file"
+                   placeholder="File">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"
+                class="btn btn-primary">Create
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+

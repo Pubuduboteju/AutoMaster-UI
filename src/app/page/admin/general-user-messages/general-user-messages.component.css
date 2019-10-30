@@ -1,0 +1,35 @@
+.replyModal{
+  position: fixed!important;
+  top: 200px!important;
+  right: 10px!important;
+  bottom: 0px!important;
+  left: 400px!important;
+  z-index: 10040!important;
+  overflow: auto!important;
+  overflow-y: auto!important;
+
+}
+.buttonRound{
+  /*width: 50px;*/
+  /*height: 50px;*/
+  /*padding: 10px 16px;*/
+  /*former radius was 35*/
+  border-radius: 20px;
+  /*font-size: 17px;*/
+  /*border-color: transparent;*/
+  /*line-height: 1.33;*/
+  /*background-color: green;*/
+  /*color: white;*/
+
+}
+.replyMessageInputPrefix{
+  background-color: #22313f;
+  color: white;
+  border-color:transparent;
+}
+
+.replyMessageInput{
+  background-color: #2c3e50;
+  color: white;
+  border-color:transparent;
+}

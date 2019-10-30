@@ -1,0 +1,54 @@
+.form-group{
+  margin-left: 200px;
+  max-width: 500px;
+}
+
+.form-group input{
+  background-color: #1b1e21;
+  color: white;
+}
+select{
+  background-color: #1b1e21;
+  color: white;
+}
+
+/*table{*/
+  /*display: block;*/
+  /*overflow: auto;*/
+/*}*/
+/* Blink for Webkit and others
+(Chrome, Safari, Firefox, IE, ...)
+*/
+
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.2;}
+}
+.blink{
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.9s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:ease-in-out;
+  -webkit-animation-direction: alternate;
+}
+
+.summaryViewButton{
+  background-color: #4d13d1!important;
+  border-color: #0b2e13;
+}
+
+.dateTableHead{
+  min-width: 71px;
+  padding-right: 0;
+  padding-left: 0px;
+}
+
+.tableDataTick{
+  color: red;
+  font-size: 20px;
+}
+.tableDataTickHybrid{
+  color:#4d13d1;
+  font-size: 20px;
+}

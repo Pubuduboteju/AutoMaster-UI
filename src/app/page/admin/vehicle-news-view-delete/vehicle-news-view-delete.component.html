@@ -1,0 +1,87 @@
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Vehicle News</b></div>
+  <div>
+    <table class="table vehicleMaintenanceTable">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>News Image</th>
+        <th>Title</th>
+        <th>Sub Title</th>
+        <th>Description</th>
+        <th>View / Delete</th>
+        <!--<th>Delete</th>-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <!--<form class="validate-form" novalidate [formGroup]="newCommentForm">-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="userName" placeholder="User Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="vehicleName" placeholder="Vehicle Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="comment" placeholder="Write Your Comment">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--</form>-->
+      </tr>
+      <tr *ngFor="let vehicleNewsTableRowShow of vehicleNews">
+        <td>{{vehicleNewsTableRowShow.id}}</td>
+        <td><img style=" width: 70px; height: 50px;" class=" img-responsive rounded" [src]="vehicleNewsTableRowShow.image" alt="Card image cap"></td>
+        <td>{{vehicleNewsTableRowShow.title}}</td>
+        <td>{{vehicleNewsTableRowShow.subTitle}}</td>
+        <td ><div id="description" style="max-height: 50px!important; overflow: hidden!important;">{{vehicleNewsTableRowShow.description}}</div></td>
+        <td><div class="btn-group">
+          <button style="" [attr.data-target]="'#viewMoreModalForNews' + vehicleNewsTableRowShow.id" data-toggle="modal" class="btn btn-outline-info ">
+            <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+            <i class="fas fa-eye"></i>
+          </button>
+        <!--</div></td>-->
+        <!--<td><div class="">-->
+          <button style="" (click)="deleteSelectedVehicleNews(vehicleNewsTableRowShow.id)"  class="btn btn-outline-danger">
+            <!--<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>-->
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div></td>
+
+        <!--Model-starts from here-->
+        <div class="modal fade" id="viewMoreModalForNews{{vehicleNewsTableRowShow.id}}" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div style="background-color: #1b1e21; color: white;" class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{vehicleNewsTableRowShow.title}} - {{vehicleNewsTableRowShow.subTitle}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span style="color: white" aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class=""><img class="img-fluid" src="{{vehicleNewsTableRowShow.image}}"></div>
+                <div class="float-right"><i>News Date : {{vehicleNewsTableRowShow.newsDate}}</i></div>
+                <br>
+                <h5 style="color: green">Description :</h5>
+                <p style="padding-left: 10px;">{{vehicleNewsTableRowShow.description}}</p>
+              </div>
+              <div class="modal-footer">
+                <!--<button style="" data-dismiss="modal" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+                  <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+                  <!--<i class="fas fa-reply-all"></i> Reply-->
+                <!--</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+                <!--class="btn btn-primary">Create-->
+                <!--</button>-->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--Model ends-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

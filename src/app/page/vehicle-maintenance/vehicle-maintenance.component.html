@@ -1,0 +1,216 @@
+<div style="margin:50px;">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b><h4>Vehicle Maintenance</h4></b></div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <!--<select ng-model="selectedName" ng-options="item for item in names">Select vehicle model</select>-->
+    <select id="ms_series" name="ms_series" (change)="carOnChange($event.target.value)" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 300px">
+      <option>Vehicle Model</option>
+      <option style="width: 60px;" *ngFor="let car1 of cars" [value]="car1.id">{{car1.vehicleModel}}</option>
+    </select>
+  </div>
+  <br>
+  <div *ngIf="car">
+    <div>
+      <div class="row">
+        <div class="col-md-5">
+          <img style="margin-left:300px;" class="card-img-top" [src]="car.image" alt="Card image cap">
+        </div>
+      </div>
+      <div class="row sticky" style="position: sticky">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div id="menu-outer">
+            <div style="padding-top: 20px;" >
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('specifications').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-info-circle"></i> Specifications</button>
+                <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('5000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-wrench"></i> Super Light Service</button>
+                <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('10000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-tools"></i> Light Service</button>
+                <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('20000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-cog"></i> Medium Service</button>
+                <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('40000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-cogs"></i> Heavy Service</button>
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('safety').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-user-shield"></i> Safety</button>-->
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('interior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Interior</button>-->
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('exterior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Exterior</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div style="padding-top: 75px;" id="specifications">
+        <h3 > {{car.vehicleModel}} Specifications</h3>
+        <div class="card-body">
+          <!--<label>Vehicle name</label>-->
+          <!--<h5 class="card-title float-right">{{car.name}}</h5>-->
+          <!--<label>Details</label>-->
+          <!--<p class="card-text">{{car.description}}</p>-->
+          <!--</div>-->
+          <!--<p>{{car.id}}</p>-->
+          <!--<p>{{car.name}}</p>-->
+          <!--<p>{{car.description}}</p>-->
+          <table style="width: 1000px;" class="table">
+            <tbody>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Vehicle Model</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;"><b>{{car.vehicleModel}}</b></td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Vehicle Make</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.vehicleMake}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Trim/Edition</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.trim_edition}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Model Year</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.modelYear}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Body Type</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.bodyType}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Engine Capacity</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.engineCapacity}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Transmission</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.transmission}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Fuel Type</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.fuelType}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <!--Maintenance data-->
+      <div class="row">
+        <div class="col-md-10">
+          <div  style="padding-top: 75px;" id="5000">
+            <h3>{{car.vehicleModel}} - Super Light Service (Every 5,000 kms)</h3>
+            <br>
+            <h5 style="color: green">Basic level of service</h5>
+            <div>
+              <ul>
+                <li>Replace engine oil and filter</li>
+              </ul>
+            </div>
+            <!--<div class="table-responsive" >-->
+              <!--<table class="table">-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                  <!--<td><b>Length mm</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)!important;">4060</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Width mm</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">1715</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Height mm</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">1490</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Seating Capacity</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">05</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Gross Vehicle Weight kg</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">1576.00</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Cargo Capacity L</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">0484</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Fuel Consumption - City km/l</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">12</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Fuel Consumption - Highway km/l</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">16</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Fuel Consumption - Combined km/l</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">14</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Horsepower (kW)</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">109</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td><b>Turning Circle m.</b></td>-->
+                  <!--<td style="color: rgba(82, 179, 217, 1)">9.6</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+              <!--</table>-->
+            <!--</div>-->
+          </div>
+          <div  style="padding-top: 75px;" id="10000">
+            <h3 >{{car.vehicleModel}} - Light Service (Every 10,000 kms)</h3>
+            <br>
+            <div >
+              <h5 style="color: green">Includes Super Light Service, plus:</h5>
+                <div>
+                  <ul>
+                    <li>Check installation of driver's floor mat</li>
+                    <li>Check for open campaigns/recalls</li>
+                    <li>Rotate tires and check condition (tread depth)</li>
+                    <li>Set tire pressures to correct PSI</li>
+                    <li>Check that all exterior light bulbs are functioning</li>
+                    <li>Inspect front and rear brake components</li>
+                    <li>Inspect and top off fluid levels</li>
+                    <li>Perform multi-point inspection with print-out</li>
+                    <li>Road test of vehicle</li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div  style="padding-top: 75px;" id="20000">
+            <h3 >{{car.vehicleModel}} - Medium Service (Every 20,000 kms)</h3>
+            <br>
+            <div >
+              <h5 style="color: green">Includes Super Light and Light Services, plus:</h5>
+              <div>
+                <ul>
+                  <li>Inspect condition of drive axle boots</li>
+                  <li>Check condition of brake fluid</li>
+                  <li>Check transfer case and differential fluids</li>
+                  <li>Check operation of cooling system and/or indication of coolant leak</li>
+                  <li>Complete inspection of steering and suspension components</li>
+                  <li>Complete inspection of exhaust system</li>
+                  <li>Inspect air filter</li>
+                  <li>Inspect wiper inserts/blades</li>
+                  <li>Inspect cabin air filter (if applicable)</li>
+                  <li>Lubricate propeller shaft (where applicable)</li>
+                  <li>Inspect fuel lines and charcoal canister</li>
+                  <li>Reset maintenance/tire pressure warning lights</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div  style="padding-top: 75px;" id="40000">
+            <h3 >{{car.vehicleModel}} - Heavy Service (Every 40,000 kms)</h3>
+            <br>
+            <div >
+              <h5 style="color: green">Includes Super Light, Light, and Medium Services, plus:</h5>
+              <div>
+                <ul>
+                  <li>Engine tune up</li>
+                  <li>Inspect ignition wires and distributor cap</li>
+                  <li>Replace air filter</li>
+                  <li>Replace cabin air filter (if applicable)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Maintenance data-->
+    </div>
+
+  </div>
+</div>
+

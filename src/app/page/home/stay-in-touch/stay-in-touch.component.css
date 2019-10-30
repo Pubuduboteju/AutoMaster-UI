@@ -1,0 +1,23 @@
+.form-group{
+  /*margin-left: 30px;*/
+  max-width: 500px;
+}
+
+.form-group input{
+  background-color: #1b1e21;
+  color: white;
+}
+select{
+  background-color: #1b1e21;
+  /*background-color: black;*/
+  color: white;
+}
+
+select option{
+  background-color:rgba(52, 73, 94, 1);
+  color: white;
+}
+.messages{
+  margin: 40px;
+}
+

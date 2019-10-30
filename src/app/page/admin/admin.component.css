@@ -1,0 +1,19 @@
+#badgeInbox {
+  position: absolute;
+  top: 430px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: #5333ed;
+  color: white;
+}
+#badgeAdminCars {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: #5333ed;
+  color: white;
+}
+

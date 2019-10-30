@@ -1,0 +1,103 @@
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>My {{userCar.vehicleModel}} Details / {{userCar.vehicleNumber}}</b></div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <!--<select ng-model="selectedName" ng-options="item for item in names">Select vehicle model</select>-->
+    <!--<select id="ms_series" name="ms_series" (change)="carOnChange($event.target.value)" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched" style="">-->
+    <!--<option style="width: 60px;" *ngFor="let car1 of cars" [value]="car1.id">{{car1.name}}</option>-->
+    <!--</select>-->
+  </div>
+  <br>
+  <div>
+    <div class="row">
+      <div class="col-md-5">
+        <img style="margin-left:300px;" class="card-img-top" [src]="userCar.image" alt="Card image cap">
+      </div>
+    </div>
+    <div class="card-body">
+      <!--<label>Vehicle name</label>-->
+      <!--<h5 class="card-title float-right">{{car.name}}</h5>-->
+      <!--<label>Details</label>-->
+      <!--<p class="card-text">{{car.description}}</p>-->
+      <!--</div>-->
+      <!--<p>{{car.id}}</p>-->
+      <!--<p>{{car.name}}</p>-->
+      <!--<p>{{car.description}}</p>-->
+      <table style="width: 1000px;" class="table">
+        <tbody>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Vehicle Model</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;"><b>{{userCar.vehicleModel}}</b></td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Vehicle Make</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.vehicleMake}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Model Year</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.modelYear}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Body Type</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.bodyType}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Engine Capacity</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.engineCapacity}} cc</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Transmission</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.transmission}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Fuel Type</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.fuelType}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Chassis Number</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.chassisNumber}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Registered Year</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.registeredYear}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Current Mileage</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.currentMileage}} Kms</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Last Engine Oil Change</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.lastEngineOilChange}} Kms</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Last Engine Oil Filter Change</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.lastEngineOilFilterChange}} Kms</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Last Engine Oil Filter Change</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{userCar.lastEngineOilFilterChange}} Kms</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <!--<div class="table-responsive">-->
+      <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>Id</th>-->
+          <!--<th>Vehicle Model</th>-->
+          <!--<th>Vehicle Make</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr *ngFor="let car of cars">-->
+          <!--<td>{{car.id}}</td>-->
+          <!--<td>{{car.vehicleModel}}</td>-->
+          <!--<td>{{car.vehicleMake}}</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+      <!--</table>-->
+    <!--</div>-->
+  </div>
+</div>

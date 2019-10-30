@@ -1,0 +1,48 @@
+.carousel-item {
+  /*former hieght was 100hv*/
+  height: 90vh;
+  width: 100%;
+  /*min-height: 350px;*/
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.carouselExampleControls{
+
+}
+
+#overview-hero h1 .series-name, #overview-hero h1 .series-year {
+  display: block;
+}
+
+/*prev, next incon styling*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  /*outline: black;*/
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  /*border: 1px solid black;*/
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 60px;
+  color: white;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 60px;
+  color: white;
+}
+/*prev, next incon styling end*/
+.checked {
+  color: orange;
+}

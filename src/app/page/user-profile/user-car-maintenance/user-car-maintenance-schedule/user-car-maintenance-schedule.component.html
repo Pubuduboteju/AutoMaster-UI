@@ -1,0 +1,1048 @@
+<div id="top">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>{{userCar.vehicleMake}} {{userCar.vehicleModel}} - {{userCar.vehicleNumber}} vehicle maintenance schedule</b></div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+
+  </div>
+  <br>
+  <div>
+    <div class="row">
+      <div class="col-md-5">
+        <img style="margin-left:300px;" class="card-img-top" [src]="userCar.image" alt="Card image cap">
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <form novalidate [formGroup]="maintenanceUserCarsForm">
+          <!--<div class="form-group">-->
+            <!--<label for="userName">User Name</label>-->
+            <!--<input type="text" class="form-control" id="userName" formControlName="userName" aria-describedby="userNameHelp" placeholder="Enter User Name">-->
+            <!--<small id="userNameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="vehicleModel">Vehicle Model</label>-->
+            <!--<input type="text" class="form-control" id="vehicleModel" formControlName="vehicleModel" aria-describedby="vehicleModelHelp" placeholder="Enter Vehicle Model">-->
+            <!--<small id="vehicleModelHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="vehicleMake">Vehicle Make</label>-->
+            <!--<input type="text" class="form-control" id="vehicleMake" formControlName="vehicleMake" aria-describedby="vehicleMakeHelp" placeholder="Enter Vehicle Make">-->
+            <!--<small id="vehicleMakeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="modelYear">Model Year</label>-->
+            <!--<input type="text" class="form-control" id="modelYear" formControlName="modelYear" aria-describedby="modelYearHelp" placeholder="Enter Model Year">-->
+            <!--<small id="modelYearHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="bodyType">Body Type</label>-->
+            <!--<input type="text" class="form-control" id="bodyType" formControlName="bodyType" aria-describedby="bodyTypeHelp" placeholder="Enter Body Type">-->
+            <!--<small id="bodyTypeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="engineCapacity">Engine Capacity</label>-->
+            <!--<div class="input-group">-->
+              <!--<input type="text" class="form-control" id="engineCapacity" formControlName="engineCapacity" aria-describedby="engineCapacityHelp" placeholder="Enter Engine Capacity">-->
+              <!--<div  class="input-group-append">-->
+                <!--<span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">cc</span>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<small id="engineCapacityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="transmission">Transmission</label>-->
+            <!--<select class="browser-default custom-select form-control" id="transmission" formControlName="transmission">-->
+              <!--<option selected>Select vehicle transmission</option>-->
+              <!--<option value="manual">Manual</option>-->
+              <!--<option value="automatic">Automatic</option>-->
+              <!--<option value="triptronic">Triptronic</option>-->
+            <!--</select>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="fuelType">Fuel Type</label>-->
+            <!--<select class="browser-default custom-select form-control" id="fuelType" formControlName="fuelType">-->
+              <!--<option selected>Select fuel type</option>-->
+              <!--<option value="Petrol">Petrol</option>-->
+              <!--<option value="diesel">Diesel</option>-->
+              <!--<option value="hybrid">Hybrid</option>-->
+              <!--<option value="electric">Electric</option>-->
+              <!--<option value="petrolTurbo">Petrol turbo</option>-->
+              <!--<option value="dieselTurbo">Diesel turbo</option>-->
+            <!--</select>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="chassisNumber">Chassis Number</label>-->
+            <!--<input type="text" class="form-control" id="chassisNumber" formControlName="chassisNumber" aria-describedby="chassisNumberHelp" placeholder="Enter Chassis Number">-->
+            <!--<small id="chassisNumberHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="vehicleNumber">Vehicle Number</label>-->
+            <!--<input type="text" class="form-control" id="vehicleNumber" formControlName="vehicleNumber" aria-describedby="vehicleNumberHelp" placeholder="Enter Vehicle Number">-->
+            <!--<small id="vehicleNumberHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="registeredYear">Registered Year</label>-->
+            <!--<input type="text" class="form-control" id="registeredYear" formControlName="registeredYear" aria-describedby="registeredYearHelp" placeholder="Enter Registered Year">-->
+            <!--<small id="registeredYearHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <div class="form-group">
+            <label for="currentMileage">Current Mileage</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="currentMileage" formControlName="currentMileage" aria-describedby="currentMileageHelp" placeholder="Enter Current Mileage">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+              </div>
+            </div>
+            <small id="currentMileageHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="lastEngineOilChange">Last Engine Oil Change</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="lastEngineOilChange" formControlName="lastEngineOilChange" aria-describedby="lastEngineOilChangeHelp" placeholder="Enter Last Engine Oil Change">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+              </div>
+            </div>
+            <small id="lastEngineOilChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="lastEngineOilFilterChange">Last Engine Oil Filter Change</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="lastEngineOilFilterChange" formControlName="lastEngineOilFilterChange" aria-describedby="lastEngineOilFilterChangeHelp" placeholder="Enter Last Engine Oil Filter Change">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+              </div>
+            </div>
+            <small id="lastEngineOilFilterChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="lastGearOilChange">Last Gear Oil Change</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="lastGearOilChange" formControlName="lastGearOilChange" aria-describedby="clastGearOilChangeHelp" placeholder="Enter Last Gear Oil Change">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+              </div>
+            </div>
+            <small id="lastGearOilChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="avgKmsMonth">Average Kms Per Month</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="avgKmsMonth" formControlName="avgKmsMonth" aria-describedby="avgKmsMonthHelp" placeholder="Enter Average Kms per Month">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>
+              </div>
+            </div>
+            <small id="avgKmsMonthHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <!--<div class="form-group">-->
+            <!--<label for="file">Upload Vehicle Image</label>-->
+            <!--<input (change)="fileChange($event)" formControlName="file" type="file" class="form-control" id="file"-->
+                   <!--placeholder="Upload Vehicle Image">-->
+          <!--</div>-->
+          <div >
+            <button style="background-color: #1b1e21; color: white; margin-right: 200px" (click)="getUserCarMaintenanceSchedule(maintenanceUserCarsForm.value)" [disabled]="!maintenanceUserCarsForm.valid" type="button"
+                    class="btn btn-primary float-right" onClick="document.getElementById('middle').scrollIntoView();">Show My Maintenance Schedule
+            </button>
+          </div>
+          <br>
+          <br>
+          <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+        </form>
+      </div>
+
+      <!--<table style="width: 1000px;" class="table">-->
+        <!--<tbody>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Vehicle Model</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;"><b>{{userCar.vehicleModel}}</b></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Vehicle Make</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.vehicleMake}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Model Year</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.modelYear}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Body Type</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.bodyType}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Engine Capacity</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.engineCapacity}} cc</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Transmission</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.transmission}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Fuel Type</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.fuelType}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Chassis Number</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.chassisNumber}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Registered Year</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.registeredYear}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Current Mileage</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.currentMileage}} Kms</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Last Engine Oil Change</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.lastEngineOilChange}} Kms</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Last Engine Oil Filter Change</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.lastEngineOilFilterChange}} Kms</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td style="max-width: 200px!important;"><b>Last Engine Oil Filter Change</b></td>-->
+          <!--<td style="margin-left: 0px; padding-left: 0px;">{{userCar.lastEngineOilFilterChange}} Kms</td>-->
+        <!--</tr>-->
+
+        <!--</tbody>-->
+      <!--</table>-->
+
+
+    </div>
+
+  </div>
+  <div style="min-height: 100px"></div>
+  <div id="middle">
+
+    <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>{{userCar.vehicleMake}} {{userCar.vehicleModel}} - {{userCar.vehicleNumber}} vehicle maintenance schedule <button style="margin-left: 350px;" type="button" class="btn btn-outline-info my-2 my-sm-0 " onClick="document.getElementById('top').scrollIntoView();"> <i class="fas fa-level-up-alt"></i> Go Back</button></b></div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div style="padding: 30px;" class="col-md-6 flex flex-center">
+        <div style="background-color: #1b1e21; color: white;  width: 450px;" class="row toggle-group btn-group">
+          <!--<div class="col-md-6">-->
+            <button style="background-color: #1b1e21; color: white;" (click)="getUserCarMaintenanceScheduleSummaryView()"  type="button"
+                    class="btn btn-primary btn-lg toggle-button" [ngClass]="{'summaryViewButton': userCarMaintenanceScheduleSummaryView }"><span *ngIf="userCarMaintenanceScheduleSummaryView" class="spinner-grow spinner-grow-lg" role="status" aria-hidden="true"></span> Summary View
+            </button>
+          <!--</div>-->
+          <!--<div class="col-md-6">-->
+            <button style="background-color: #1b1e21; color: white; " (click)="getUserCarMaintenanceScheduleFullView()"  type="button"
+                    class="btn btn-primary btn-lg toggle-button " [ngClass]="{'summaryViewButton': userCarMaintenanceScheduleFullView }"><span *ngIf="userCarMaintenanceScheduleFullView" class="spinner-grow spinner-grow-lg" role="status" aria-hidden="true"></span> Full Schedule
+            </button>
+          <!--</div>-->
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <div><h4 style="margin-left: 30px;">Based on your vehicle information, here is the recommended service schedule.</h4></div>
+    <br>
+    <div *ngIf="userCarMaintenanceScheduleSummaryView" class="row">
+      <!--<h4 style="margin-left: 30px;">Based on your vehicle information, here is the recommended service schedule.</h4>-->
+      <!--<br>-->
+      <!--<br>-->
+      <!--<br>-->
+      <div class="col-md-4">
+        <div>
+          <div style="padding-left: 20px;">
+            <!--<div *ngFor="let userCar of userCars">-->
+            <div>
+              <div class="card" style="width: 16rem; margin-right: 10px; margin-left: 10px; margin-bottom: 15px;" (click)="showDetails(userCar.id)" >
+                <!--<img STYLE="height: 250px;" class="card-img-top" [src]="userCar.image" alt="Card image cap">-->
+                <div style="height: 250px; padding: 20px; background-color: #1b1e21; color: white;">
+                  <h4 class="text-center" >Previous Service</h4>
+                  <h1 class="text-center">{{previousService}} Kms</h1>
+                  <h6 class="text-left"><i>Factory Recommended :</i></h6>
+                  <a class="float" data-target="#service1" data-toggle="modal" style="color:white; background-color:#026926"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Service #1
+                    <i class="fa fa-plus my-float "></i>
+                  </a>
+                </div>
+                <div style="color: black!important;" class="card-body">
+                  <h5  class="card-title">Vehicle Model : {{userCar.vehicleModel}}</h5>
+                  <p class="card-text">Vehicle Make : {{userCar.vehicleMake}}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div>
+          <div style="padding-left: 20px;">
+            <!--<div *ngFor="let userCar of userCars">-->
+            <div>
+              <div class="card" style="width: 16rem; margin-right: 10px; margin-left: 10px; margin-bottom: 15px;" (click)="showDetails(userCar.id)" >
+                <!--<img STYLE="height: 250px;" class="card-img-top" [src]="userCar.image" alt="Card image cap">-->
+                <div style="height: 250px; padding: 20px; background-color: #1b1e21; color: white;">
+                  <h4 class="text-center" >Current Service</h4>
+                  <h1 class="text-center">{{currentService}} Kms</h1>
+                  <p class="blink"><i>{{ currentServiceDateFormatted}}</i></p>
+                  <h6 class="text-left"><i>Factory Recommended :</i></h6>
+                  <a class="float" data-target="#service2" data-toggle="modal" style="color:white; background-color:#026926"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Service #2
+                    <i class="fa fa-plus my-float "></i>
+                  </a>
+                </div>
+                <div style="color: black!important;" class="card-body">
+                  <h5  class="card-title">Vehicle Model : {{userCar.vehicleModel}}</h5>
+                  <p class="card-text">Vehicle Make : {{userCar.vehicleMake}}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <div style="padding-left: 20px;">
+            <!--<div *ngFor="let userCar of userCars">-->
+            <div>
+              <div class="card" style="width: 16rem; margin-right: 10px; margin-left: 10px; margin-bottom: 15px;" (click)="showDetails(userCar.id)" >
+                <!--<img STYLE="height: 250px;" class="card-img-top" [src]="userCar.image" alt="Card image cap">-->
+                <div style="height: 250px; padding: 20px; background-color: #1b1e21; color: white;">
+                  <h4 class="text-center" >Upcoming Service</h4>
+                  <h1 class="text-center">{{upcomingService}} Kms</h1>
+                  <p class="blink"><i>{{upcomingServiceDateFormatted}}</i></p>
+                  <h6 class="text-left"><i>Factory Recommended :</i></h6>
+                  <a class="float" data-target="#service1" data-toggle="modal" style="color:white; background-color:#026926"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Service #1
+                    <i class="fa fa-plus my-float "></i>
+                  </a>
+                </div>
+                <div style="color: black!important;" class="card-body">
+                  <h5  class="card-title">Vehicle Model : {{userCar.vehicleModel}}</h5>
+                  <p class="card-text">Vehicle Make : {{userCar.vehicleMake}}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="userCarMaintenanceScheduleFullView" class="row">
+      <div class="row" style="width: 970px;">
+      <div style="padding-right: 0px; margin-right: 0" class="col-md-3">
+        <div  style="padding-right: 0px; margin-right: 0" class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Vehicle Odometer in Kms</th>
+            </tr>
+            <tr style="height: 74px;">
+              <th>Estimated Service Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Replace Engine Oil</td>
+            </tr>
+            <tr>
+              <td>Replace Engine Oil Filter</td>
+            </tr>
+            <tr>
+              <td><a class="float" data-target="#service1" data-toggle="modal" style="color:white; background-color:#026926; cursor: pointer"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Service #1
+                <i class="fa fa-plus my-float "></i>
+              </a></td>
+              <!--<td><a>Service #1</a></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"> </i><i> 17 inch</i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i><i> 17 inch</i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"> </i> <i> Dark metalic grey 18 inch alloy wheels</i></td>-->
+            </tr>
+            <tr>
+              <td><a class="float" data-target="#service20000" data-toggle="modal" style="color:white; background-color:#026926; cursor: pointer"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Service #2
+                <i class="fa fa-plus my-float "></i>
+              </a></td>
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+            </tr>
+            <tr>
+              <td>Personalization</td>
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i><i> Driver Side</i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i><i> Driver Side</i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i><i> Driver Side</i></td>-->
+            </tr>
+            <tr>
+              <td><a class="float" data-target="#service40000" data-toggle="modal" style="color:white; background-color:#026926; cursor: pointer"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Service #3
+                <i class="fa fa-plus my-float "></i>
+              </a></td>
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+            </tr>
+            <tr>
+              <td><a class="float" data-target="#hybridService1" data-toggle="modal" style="color:white; background-color:#4d13d1; cursor: pointer"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Hybrid Service #1
+                <i class="fa fa-plus my-float "></i>
+              </a></td>
+            </tr>
+            <tr>
+              <td>Replace Super Long Life Coolant</td>
+              <!--<td><i class="fa fa-times" aria-hidden="true"> </i><i> Manually Adjustable</i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+            </tr>
+            <tr>
+              <td>Brake Fluid Replacement</td>
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+            </tr>
+            <tr>
+              <td><a class="float" data-target="#hybridService2" data-toggle="modal" style="color:white; background-color:#4d13d1; cursor: pointer"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Hybrid Service #2
+                <i class="fa fa-plus my-float "></i>
+              </a></td>
+            </tr>
+            <tr>
+              <td>Replace Iridium Spark Plugs</td>
+              <!--<td><i>1 Scoop</i></td>-->
+              <!--<td><i>1 Scoop</i></td>-->
+              <!--<td><i>3 Scoops</i></td>-->
+              <!--<td><i>1 Scoop</i></td>-->
+              <!--<td><i>3 Scoops</i></td>-->
+              <!--<td><i>1 Scoop</i></td>-->
+            </tr>
+            <tr>
+              <td>Inspect Vacuum Pump for Brake Booster operation and condition</td>
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-check" aria-hidden="true"></i></td>-->
+              <!--<td><i class="fa fa-times" aria-hidden="true"></i></td>-->
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div  style="padding-left: 0px; margin-left: 0; overflow: auto" class="col-md-9">
+        <div  style="padding-left: 0px; margin-left: 0" class="table-responsive">
+          <!--<table class="table" style="display: block; overflow: auto; width: 700px">-->
+          <table class="table">
+            <thead >
+            <tr>
+              <th>{{previousService}}</th>
+              <th>{{currentService}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[0]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[1]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[2]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[3]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[4]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[5]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[6]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[7]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[8]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[9]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[10]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[11]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[12]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[13]}}</th>
+              <th class="dateTableHead">{{upcomingServiceInKmsArray[14]}}</th>
+
+
+              <!--<th>24000</th>-->
+              <!--<th>32k</th>-->
+              <!--<th>40k</th>-->
+              <!--<th>48k</th>-->
+              <!--<th>56k</th>-->
+              <!--<th>64k</th>-->
+              <!--<th>64k</th>-->
+              <!--<th>64k</th>-->
+              <!--<th>64k</th>-->
+              <!--<th>64k</th>-->
+              <!--<th>64k</th>-->
+
+            </tr>
+            <tr>
+              <th>Previous Service</th>
+              <th>Current Service</th>
+              <!--<span *ngFor="let userCarA of upcomingServiceDatesArray">-->
+                <!--<th>{{userCarA}}</th>-->
+              <!--</span>-->
+              <th class="dateTableHead">{{upcomingServiceDatesArray[0]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[1]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[2]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[3]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[4]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[5]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[6]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[7]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[8]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[9]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[10]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[11]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[12]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[13]}}</th>
+              <th class="dateTableHead">{{upcomingServiceDatesArray[14]}}</th>
+              <!---->
+              <!--<th>Jan 2021</th>-->
+              <!--<th>Jul 2021</th>-->
+              <!--<th>Jan 2022</th>-->
+              <!--<th>Jul 2022</th>-->
+              <!--<th>Jan 2023</th>-->
+              <!--<th>Jan 2023</th>-->
+              <!--<th>Jan 2023</th>-->
+              <!--<th>Jan 2023</th>-->
+              <!--<th>Jan 2023</th>-->
+              <!--<th>Jan 2023</th>-->
+            </tr>
+            </thead>
+            <tbody >
+            <tr>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+            </tr>
+            <tr >
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+            </tr>
+            <tr id="hybridServiceOne">
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTickHybrid" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTickHybrid" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTickHybrid" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTickHybrid" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTickHybrid" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr style="height: 73px;">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr >
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr id="hybridServiceTwo" >
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTickHybrid" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTickHybrid" aria-hidden="true"></i></td>
+              <td>-</td>
+            </tr>
+            <tr >
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr >
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><i class="fa fa-check tableDataTick" aria-hidden="true"></i></td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <!--<tr *ngFor="let car of cars">-->
+            <!--<td>{{car.id}}</td>-->
+            <!--<td>{{car.vehicleModel}}</td>-->
+            <!--<td>{{car.vehicleMake}}</td>-->
+            <!--</tr>-->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---->
+<!--Model-->
+<div class="modal fade" id="service1" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Service #1 - Light Service</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 style="color: green">Includes Super Light Service, plus :</h5>
+        <ul>
+          <li> Check for open campaigns/recalls.</li>
+          <li> Check installation of driver's floor mat.</li>
+          <li> Set tire pressures to correct PSI.</li>
+          <li> Check that all exterior light bulbs are functioning.</li>
+          <li> Reset Maintenance Reminder Light or system.</li>
+          <li> Inspect all lights and horn for proper operation.</li>
+          <li> Inspect wiper blades, linkage and washers for proper operation.</li>
+          <li> Inspect and adjust level - engine oil, brake fluid, engine/inverter coolant, power steering fluid and washer fluid.</li>
+          <li> Remove & inspect engine air filter. </li>
+          <li> Remove & inspect cabin air filter.</li>
+          <li> Check and record tire tread depth. Examine tires for damage and uneven wear.</li>
+          <li> Remove wheels & visually inspect brake pads, calipers, rotors, brake lines and hoses.</li>
+          <li> Rotate tires (applicable to same size wheels, front & rear) or alternatively perform seasonal tire change-over. </li>
+          <li> Record inspection results, measurements and component condition on inspection form and/or repair order.</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+                <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<!---->
+<!--Model2-->
+<div class="modal fade" id="service2" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Service #2</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li> Visually inspect drive belts.</li>
+          <li> Replace engine oil & filter (synthetic).</li>
+          <li> Lubricate locks, latches and hinges.</li>
+          <li> Check installation of driver's floor mat.</li>
+          <li> Reset Maintenance Reminder Light or system.</li>
+          <li> Inspect all lights and horn for proper operation.</li>
+          <li> Inspect wiper blades, linkage and washers for proper operation.</li>
+          <li> Inspect and adjust level - engine oil, brake fluid, engine/inverter coolant, power steering fluid and washer fluid.</li>
+          <li> Remove & inspect engine air filter. </li>
+          <li> Remove & inspect cabin air filter.</li>
+          <li> Check and record tire tread depth. Examine tires for damage and uneven wear.</li>
+          <li> Remove wheels & visually inspect brake pads, calipers, rotors, brake lines and hoses.</li>
+          <li> Rotate tires (applicable to same size wheels, front & rear) or alternatively perform seasonal tire change-over. </li>
+          <li> Record inspection results, measurements and component condition on inspection form and/or repair order.</li>
+          <li> Remove & inspect cabin air filter.</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<!---->
+<!--Model3-->
+<div class="modal fade" id="service5000" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Service #2</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Replace engine oil and filter</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<!---->
+<!--Model4-->
+<div class="modal fade" id="service10000" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Service #2</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Check installation of driver's floor mat</li>
+          <li>Check for open campaigns/recalls</li>
+          <li>Rotate tires and check condition (tread depth)</li>
+          <li>Set tire pressures to correct PSI</li>
+          <li>Check that all exterior light bulbs are functioning</li>
+          <li>Inspect front and rear brake components</li>
+          <li>Inspect and top off fluid levels</li>
+          <li>Perform multi-point inspection with print-out</li>
+          <li>Road test of vehicle</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<!---->
+<!--Model5-->
+<div class="modal fade" id="service20000" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Service #2 - Medium Service</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 style="color: green">Includes Super Light and Light Services, plus :</h5>
+        <ul>
+          <li>Inspect condition of drive axle boots</li>
+          <li>Check condition of brake fluid</li>
+          <li>Check transfer case and differential fluids</li>
+          <li>Check operation of cooling system and/or indication of coolant leak</li>
+          <li>Complete inspection of steering and suspension components</li>
+          <li>Complete inspection of exhaust system</li>
+          <li>Inspect air filter</li>
+          <li>Inspect wiper inserts/blades</li>
+          <li>Inspect cabin air filter (if applicable)</li>
+          <li>Lubricate propeller shaft (where applicable)</li>
+          <li>Inspect fuel lines and charcoal canister</li>
+          <li>Reset maintenance/tire pressure warning lights</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<!---->
+<!--Model6-->
+<div class="modal fade" id="service40000" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Service #3 - Heavy Service</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 style="color: green">Includes Super Light, Light, and Medium Services, plus :</h5>
+        <ul>
+          <li>Engine tune up</li>
+          <li>Inspect ignition wires and distributor cap</li>
+          <li>Replace air filter</li>
+          <li>Replace cabin air filter (if applicable)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<!--Model7-->
+<div class="modal fade" id="hybridService1" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Hybrid Service #1 </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 style="color: green">Includes all other services, plus :</h5>
+        <ul>
+          <li>Check inverter coolant/ refill inverter coolant to the required level</li>
+          <li>Inspect ignition wires and distributor cap</li>
+          <li>Replace air filter</li>
+          <li>Replace cabin air filter (if applicable)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<!--Model8-->
+<div class="modal fade" id="hybridService2" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Hybrid Service #2</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 style="color: green">Includes all other services, hybrid service #1, plus :</h5>
+        <ul>
+          <li>Engine tune up</li>
+          <li>Inspect ignition wires and distributor cap</li>
+          <li>Replace air filter</li>
+          <li>Replace cabin air filter (if applicable)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->

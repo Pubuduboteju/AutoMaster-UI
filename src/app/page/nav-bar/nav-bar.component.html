@@ -1,0 +1,77 @@
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<nav style="padding-bottom: 0px;" class="navbar navbar-expand-lg ">
+  <a style="color: white!important;" class="navbar-brand" id="autoMaster" href="#"><span style="padding-left: 10px;">AUTO</span><br>MASTER</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto topnav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i> Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/vehicle-details"><i class="fas fa-info-circle"></i> Vehicle details</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/vehicle-compare"><i class="fas fa-object-ungroup"></i> Compare and contrast</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/vehicle-problems"><i class="fas fa-exclamation-triangle"></i> Vehicle Problems</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/vehicle-maintenance"><i class="fas fa-cogs"></i> Vehicle Maintenance</a>
+      </li>
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="#">Link</a>-->
+      <!--</li>-->
+      <!--<li class="nav-item dropdown">-->
+        <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <!--Dropdown-->
+        <!--</a>-->
+        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+          <!--<a class="dropdown-item" href="#">Action</a>-->
+          <!--<a class="dropdown-item" href="#">Another action</a>-->
+          <!--<div class="dropdown-divider"></div>-->
+          <!--<a class="dropdown-item" href="#">Something else here</a>-->
+        <!--</div>-->
+      <!--</li>-->
+      <li *ngIf="authority !='admin'" class="nav-item active">
+        <a  style="text-transform: capitalize" class="nav-link" routerLink="/user-profile"><i class="fas fa-user-cog"></i> {{userName}} Profile</a>
+      </li>
+      <li *ngIf="authority == 'admin'" class="nav-item active">
+        <a class="nav-link" routerLink="/admin"><i class="fas fa-user-lock"></i> Admin</a>
+      </li>
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link disabled" href="#">Disabled</a>-->
+      <!--</li>-->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input style="background-color: #1b1e21; color: white" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+      <span routerLinkActive="active">
+        <a *ngIf="!userName" class="nav-link" routerLink="/auth/login"><i class="fas fa-lock"></i> Login</a>
+        <a *ngIf="userName" routerLink="" (click)="logout()">Logout</a>
+        <!--<button class="btn btn-secondary" (click)="logout()">Logout</button>-->
+      </span>
+      <!--<span>-->
+        <!--<ul class="nav navbar-nav" routerLinkActive="active">-->
+      <!--&lt;!&ndash;<li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>&ndash;&gt;-->
+      <!--<li *ngIf="authority === 'user'" class="nav-item">-->
+        <!--<a class="nav-link" routerLink="user">User Board</a>-->
+      <!--</li>-->
+      <!--<li *ngIf="authority === 'admin'" class="nav-item">-->
+        <!--<a class="nav-link" routerLink="admin">Admin Board</a>-->
+      <!--</li>-->
+      <!--<li *ngIf="authority === 'pm'" class="nav-item">-->
+        <!--<a class="nav-link" routerLink="pm">PM Board</a>-->
+      <!--</li>-->
+      <!--<li *ngIf="!authority" class="nav-item">-->
+        <!--<a class="nav-link" routerLink="auth/login">Login</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+      <!--</span>-->
+    </form>
+  </div>
+</nav>

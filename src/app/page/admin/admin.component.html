@@ -1,0 +1,120 @@
+<!--<h4>Content from Server</h4>-->
+<!--{{board}}-->
+<!--{{errorMessage}}-->
+<div style="margin:50px;">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b><h4>Admin Panel</h4></b></div>
+  <br>
+  <!---->
+  <!--<div *ngIf="info.token; else loggedOut">-->
+    <!--<h5 class="text-primary">Your Information</h5>-->
+    <!--<p>-->
+      <!--<strong>Username:</strong> {{info.username}}<br/>-->
+      <!--<strong>Roles:</strong> {{info.authorities}}<br />-->
+      <!--&lt;!&ndash;<strong>Token:</strong> {{info.token}}.&ndash;&gt;-->
+    <!--</p>-->
+    <!--&lt;!&ndash;<button class="btn btn-secondary" (click)="logout()">Logout</button>&ndash;&gt;-->
+  <!--</div>-->
+
+  <!--<ng-template #loggedOut>-->
+    <!--<div class="blink2"> Please login to view your profile.</div>-->
+    <!--<br>-->
+  <!--</ng-template>-->
+  <!---->
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <div class="row">
+      <div class="col-md-3">
+        <p>--------- Vehicles in the system ----------</p>
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style=" min-width: 300px" (click)="showViewVehiclesIntTheSystemView()"  class="btn btn-outline-info my-2 my-sm-0">
+              <!--<i class="fas fa-eye"></i>  View Vehicles In The System <span id="badgeAdminCars">{{adminCarsCount}}</span>-->
+              <i class="fas fa-eye"></i>  View Vehicles In The System
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style=" min-width: 300px" (click)="showAddVehicleToTheSystemView()" class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-plus-circle"></i>   Add Vehicles To The System
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style=" min-width: 300px" (click)="showVehicleUpdateView()"  class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-edit"></i>  Update Vehicle Details
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style=" min-width: 300px" (click)="showVehicleDeleteView()"  class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-trash-alt"></i>   Delete Vehicles In The System
+            </button>
+          </div>
+        </div>
+
+        <p>--------------- Vehicle News --------------</p>
+
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style="min-width: 300px" (click)="showAddVehicleNewsView()" class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-plus-circle"></i>    Add Vehicle News
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style="min-width: 300px" (click)="showViewDeleteVehicleNewsView()" class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-eye"></i> View / <i class="fas fa-trash-alt"></i> Delete Vehicle News
+            </button>
+          </div>
+        </div>
+
+        <p>----------------- Messages ----------------</p>
+
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style="min-width: 300px" (click)="showGeneralUserMessageView()" class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-inbox"></i>  Message Inbox <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> <span id="badgeInbox">{{nonRepliedGeneralUserMessage}}</span>
+            </button>
+          </div>
+        </div>
+
+        <p>-------------- Vehicle Forums -------------</p>
+
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style="min-width: 300px" (click)="showVehicleForumsView()" class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-comment-dots"></i>  User Comments
+            </button>
+          </div>
+        </div>
+
+        <p>------------- Service Stations ------------</p>
+
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style="min-width: 300px" (click)="showServiceStationsView()" class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-toolbox"></i>  Service Stations
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="container-login100-form-btn">
+            <button style="min-width: 300px" (click)="showServiceAppointmentsView()" class="btn btn-outline-info my-2 my-sm-0">
+              <i class="fas fa-calendar-check"></i>  Service Appointments
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9">
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

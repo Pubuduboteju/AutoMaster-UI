@@ -1,0 +1,33 @@
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Vehicle Update</b></div>
+  <div>
+    <!--<button (click)="openConfirmationDialog()" type="button" class="btn btn-primary">Open dialog</button>-->
+    <table class="table vehicleMaintenanceTable">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Vehicle Image</th>
+        <th>Vehicle Model</th>
+        <th>Vehicle Number</th>
+        <th>Deletion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      </tr>
+      <tr *ngFor="let userCar of userCars">
+        <td>{{userCar.id}}</td>
+        <td><img style=" width: 70px; height: 50px;" class=" img-responsive rounded" [src]="userCar.image" alt="Card image cap"></td>
+        <td>{{userCar.vehicleModel}}</td>
+        <td>{{userCar.vehicleNumber}}</td>
+        <td><div class="">
+          <button style="" (click)="deleteSelectedUserCar(userCar.id)"  class="btn btn-outline-danger">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Delete
+          </button>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>User Comments on :</b></div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <!--<select ng-model="selectedName" ng-options="item for item in names">Select vehicle model</select>-->
+    <select id="ms_series" name="ms_series" (change)="carOnChange($event.target.value)" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 300px">
+      <option>Vehicle Model</option>
+      <option style="width: 40px;" *ngFor="let car1 of cars" [value]="car1.vehicleModel">{{car1.vehicleModel}}</option>
+    </select>
+  </div>
+  <br>
+  <div *ngIf="adminUserComments">
+    <table class="table vehicleMaintenanceTable">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Comments</th>
+        <th>View / Delete</th>
+        <!--<th>Delete</th>-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <!--<form class="validate-form" novalidate [formGroup]="newCommentForm">-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="userName" placeholder="User Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="vehicleName" placeholder="Vehicle Name">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+        <!--<input class="input100" type="text" formControlName="comment" placeholder="Write Your Comment">-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--</form>-->
+      </tr>
+      <tr *ngFor="let adminUserComment of adminUserComments">
+        <td>{{adminUserComment.id}}</td>
+        <!--<td><img style=" width: 70px; height: 50px;" class=" img-responsive rounded" [src]="vehicleNewsTableRowShow.image" alt="Card image cap"></td>-->
+
+        <td style="text-transform: capitalize">{{adminUserComment.userName}}</td>
+        <td> - </td>
+        <td>{{adminUserComment.commentDateString}}</td>
+        <td ><div id="description" style="max-height: 50px!important; overflow: hidden!important;">{{adminUserComment.comment}}</div></td>
+        <td><div class="btn-group">
+          <button style="" [attr.data-target]="'#viewMoreModalForAdminUserComments' + adminUserComment.id" data-toggle="modal" class="btn btn-outline-info ">
+            <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+            <i class="fas fa-eye"></i>
+          </button>
+          <!--</div></td>-->
+          <!--<td><div class="">-->
+          <button style="" (click)="deleteSelectedAdminUserComments(adminUserComment.id)"  class="btn btn-outline-danger">
+            <!--<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>-->
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div></td>
+
+        <!--Model-starts from here-->
+        <div class="modal fade" id="viewMoreModalForAdminUserComments{{adminUserComment.id}}" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div style="background-color: #1b1e21; color: white;" class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span style="color: white" aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--<div class=""><img class="img-fluid" src="{{vehicleNewsTableRowShow.image}}"></div>-->
+                <div class="float-right"><i>News Date : {{adminUserComment.commentDateString}}</i></div>
+                <br>
+                <h5 style="text-transform: capitalize"><span style="color: green">User Name :</span>{{adminUserComment.userName}}</h5>
+                <h5><span style="color: green">Vehicle Name :</span>{{adminUserComment.vehicleName}}</h5>
+                <h5 style="color: green">Description :</h5>
+                <p style="padding-left: 10px;">{{adminUserComment.comment}}</p>
+              </div>
+              <div class="modal-footer">
+                <!--<button style="" data-dismiss="modal" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+                <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+                <!--<i class="fas fa-reply-all"></i> Reply-->
+                <!--</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+                <!--class="btn btn-primary">Create-->
+                <!--</button>-->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--Model ends-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

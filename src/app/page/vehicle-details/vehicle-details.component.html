@@ -1,0 +1,913 @@
+<div style="margin:50px;">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b><h4>Vehicle Details</h4></b></div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <!--<select ng-model="selectedName" ng-options="item for item in names">Select vehicle model</select>-->
+    <select id="ms_series" name="ms_series" (change)="carOnChange($event.target.value)" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 300px">
+      <option>Vehicle Model</option>
+      <option style="width: 60px;" *ngFor="let car1 of cars" [value]="car1.id">{{car1.vehicleModel}}</option>
+    </select>
+  </div>
+  <br>
+  <div *ngIf="car">
+  <div>
+    <div class="row">
+      <div class="col-md-5">
+      <img style="margin-left:300px;" class="card-img-top" [src]="car.image" alt="Card image cap">
+      </div>
+    </div>
+    <div class="row sticky" style="position: sticky">
+     <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div id="menu-outer">
+          <div style="padding-top: 20px;" >
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('specifications').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-info-circle"></i> Specifications</button>
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('grades').scrollIntoView({behavior: 'smooth'});"><i class="fab fa-buromobelexperte"></i> Grades</button>
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('dimensions').scrollIntoView({behavior: 'smooth'});"> <i class="fas fa-ruler-horizontal"></i> Dimensions</button>
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('mechanical').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-cogs"></i> Mechanical</button>
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('convenience').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-thumbs-up"></i> Convenience</button>
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('safety').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-user-shield"></i> Safety</button>
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('interior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Interior</button>
+              <button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('exterior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Exterior</button>
+            </div>
+            <!--<ul id="horizontal-list">-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('specifications').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-info-circle"></i> Specifications</button></li>-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('grades').scrollIntoView({behavior: 'smooth'});"><i class="fab fa-buromobelexperte"></i> Grades</button></li>-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('dimensions').scrollIntoView({behavior: 'smooth'});"> <i class="fas fa-ruler-horizontal"></i> Dimensions</button></li>-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('mechanical').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-cogs"></i> Mechanical</button></li>-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('convenience').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-thumbs-up"></i> Convenience</button></li>-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('safety').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-user-shield"></i> Safety</button></li>-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('interior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Interior</button></li>-->
+              <!--<li><button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('exterior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Exterior</button></li>-->
+
+            <!--</ul>-->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+      <div style="padding-top: 75px;" id="specifications">
+        <h3 > {{car.vehicleModel}} Specifications</h3>
+        <div class="card-body">
+          <!--<label>Vehicle name</label>-->
+          <!--<h5 class="card-title float-right">{{car.name}}</h5>-->
+          <!--<label>Details</label>-->
+          <!--<p class="card-text">{{car.description}}</p>-->
+          <!--</div>-->
+          <!--<p>{{car.id}}</p>-->
+          <!--<p>{{car.name}}</p>-->
+          <!--<p>{{car.description}}</p>-->
+          <table style="width: 1000px;" class="table">
+            <tbody>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Vehicle Model</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;"><b>{{car.vehicleModel}}</b></td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Vehicle Make</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.vehicleMake}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Trim/Edition</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.trim_edition}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Model Year</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.modelYear}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Body Type</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.bodyType}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Engine Capacity</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.engineCapacity}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Transmission</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.transmission}}</td>
+            </tr>
+            <tr>
+              <td style="max-width: 200px!important;"><b>Fuel Type</b></td>
+              <td style="margin-left: 0px; padding-left: 0px;">{{car.fuelType}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <div style="padding-top: 75px;" id="grades">
+        <h3> {{car.vehicleModel}} Different Grades</h3>
+        <div class="table-responsive">
+          <div *ngIf="car.vehicleModel == 'Prius'">
+            <table class="table">
+              <thead>
+              <tr>
+                <th></th>
+                <th>L</th>
+                <th>S</th>
+                <th>S Touring</th>
+                <th>G</th>
+                <th>G Touring</th>
+                <th>G Sports</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!--<tr *ngFor="let car of cars">-->
+              <!--<td>{{car.id}}</td>-->
+              <!--<td>{{car.vehicleModel}}</td>-->
+              <!--<td>{{car.vehicleMake}}</td>-->
+              <!--</tr>-->
+              <tr>
+                <td><b>Alloy Wheels</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"> </i><i> 17 inch</i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i><i> 17 inch</i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"> </i> <i> 18 inch</i></td>
+              </tr>
+              <tr>
+                <td><b>Leather Seats</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+              <tr>
+                <td><b>Electric Seats</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+              <tr>
+                <td><b>Auto Leveling Headlamps</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+              <tr>
+                <td><b>Auto Leveling Headlamps</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"> </i><i></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+              <tr>
+                <td><b>Automatic Headlamps</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+              <tr>
+                <td><b>Headlamp Design</b></td>
+                <td><i>1 Scoop</i></td>
+                <td><i>1 Scoop</i></td>
+                <td><i>3 Scoops</i></td>
+                <td><i>1 Scoop</i></td>
+                <td><i>3 Scoops</i></td>
+                <td><i>1 Scoop</i></td>
+              </tr>
+              <tr>
+                <td><b>Headlamp Washers</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+              </tr>
+              <tr>
+                <td><b>Sunroof</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i><i> Optional</i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i><i> Optional</i></td>
+                <td><i class="fa fa-check" aria-hidden="true"></i> <i> Optional</i></td>
+              </tr>
+              <tr>
+                <td><b>Factory Fitted Bodykit</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+              <tr>
+                <td><b>Rear Wiper</b></td>
+                <td><i style="color: red" class="fa fa-times" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+                <td><i style="color: green" class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    <!--Other details-->
+    <div class="row">
+      <div class="col-md-7">
+        <div  style="padding-top: 75px;" id="dimensions">
+          <h3>Dimensions</h3>
+          <br>
+          <h5 style="color: green">Dimensions</h5>
+          <div class="table-responsive" >
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px;"><b>Length mm</b></td>
+                <!--<td style="color: rgba(82, 179, 217, 1)!important;">4060</td>-->
+                <td style="color: rgba(82, 179, 217, 1);">{{carDim1.length}}</td>
+              </tr>
+              <tr>
+                <td><b>Width mm</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.width}}</td>
+              </tr>
+              <tr>
+                <td><b>Height mm</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.width}}</td>
+              </tr>
+              <tr>
+                <td><b>Seating Capacity</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.seatingCapacity}}</td>
+              </tr>
+              <tr>
+                <td><b>Gross Vehicle Weight kg</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.grossVehicleWeight}}</td>
+              </tr>
+              <tr>
+                <td><b>Cargo Capacity L</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.cargoCapacity}}</td>
+              </tr>
+              <tr>
+                <td><b>Fuel Consumption - City km/l</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.fuelConsumption_city}}</td>
+              </tr>
+              <tr>
+                <td><b>Fuel Consumption - Highway km/l</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.fuelConsumption_highway}}</td>
+              </tr>
+              <tr>
+                <td><b>Fuel Consumption - Combined km/l</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.fuelConsumption_combined}}</td>
+              </tr>
+              <tr>
+                <td><b>Horsepower (kW)</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.horsePower}}</td>
+              </tr>
+              <tr>
+                <td><b>Turning Circle m.</b></td>
+                <td style="color: rgba(82, 179, 217, 1)">{{carDim1.turningCircle}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div  style="padding-top: 75px;" id="mechanical">
+          <h3 >Mechanical</h3>
+          <br>
+          <div >
+            <h5 style="color: green">Suspension</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Stabilizer Bar</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Macpherson Gas Struts</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Torsion Beam Type</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Mechanical Features</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Vehicle Stability Control (VSC)</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Traction Control System (TRAC)</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Hill-start Assist Control (HAC)</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Engine</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Variable Valve Timing with Intelligence</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>ECO Mode</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>EV Mode</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Exhaust Heat Recovery System</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Brakes</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Front Disc</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Rear Disc</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Rear Drum</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Transmission</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Continuously Variable Transmission (CVT)</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Toyota super CVT</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Manual</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Tires</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Tyre Size</b></td>
+                <td>{{carDim1.tyreSize}}</td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Alloy Wheels</b></td>
+                <td><i style="color: red; margin-left: 40px;" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div  style="padding-top: 75px;" id="convenience">
+          <h3 >Convenience</h3>
+          <br>
+          <h5 style="color: green">Convenience</h5>
+          <div >
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Front & Rear Cup Holders</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Digital Clock</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Accessory Power Outlet (12 Volt)</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Cruise Control</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Keyless Entry</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Push Button Start</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td> style="width: 650px"<b>Smart Key System</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Power Mirrors</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Anti Glare Middle Mirror</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Center Lock</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td style="width: 650px"><b>Reading Lights</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div  style="padding-top: 75px;" id="safety">
+          <h3 >Safety</h3>
+          <br>
+          <div >
+            <h5 style="color: green">Safety</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Front Seat Mounted Side Airbags</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Anchor Points for Child Restraint Seats</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Front and Rear Side Curtain Airbags</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Child Protector Rear Door Locks</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Assist Grips</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Driver Knee Airbag</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Driver & Passenger Airbag Supplemental Restraint System (SRS)</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Front Passenger Airbag Status Indicator</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>LED Brake Lamps</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Front Seat Cushion Airbags</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Warning</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Low Fuel Warning Light</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Door Ajar</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Front Driver and Passenger Seatbelt</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Engine Heat Warnnig</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Low Engine Oil Level</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Tire Pressure Monitoring System</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Key Remind Warning</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Head Lamps On</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <!-- <tr>
+                <td><b>Front Passenger Airbag Status Indicator</b></td>
+              </tr>
+              <tr>
+                <td><b>LED Brake Lamps</b></td>
+              </tr>
+              <tr>
+                <td><b>Front Seat Cushion Airbags</b></td>
+              </tr> -->
+              </tbody>
+            </table>
+            <h5 style="color: green">Star Safety System</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Electronic Brake Force Distribution (EBD)</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Brake Assist (BA)</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Anti-lock Brake System (ABS)</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Traction Control (TRAC)</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Vehicle Stability Control (VSC)</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Smart Stop Technology (SST)</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Toyota Safety Sense</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Pre-Collision System with Pedestrian Detection</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Lane Departure Alert</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Blind Spot Assist</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Auto High Beam</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div  style="padding-top: 75px;" id="interior">
+          <h3 >Interior</h3>
+          <br>
+          <div >
+            <h5 style="color: green">Steering Wheel & Dashboard</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Synthetic Leather Wrapped Steering Wheel</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Teak Finish Dashboard</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Tilt & Telescopic Steering Wheel</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Touch Tracer Steering Wheel Controls</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Climate Control</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Dual Zone Climate Control</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Automatic Temperature Control</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Cabin Air Filter</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Rear Seat Heater Ducts	</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Air Conditioning With Bacteria Destroying</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Seats</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Leather Seats</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Electric Seat Adjusting</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Seat Lamba Adjusting</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Heated Front Seats</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Rear Adjustable Seats</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Driver Seat Height Adjustable</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Rear Seat Arm Rest</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Windows</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>UV Cut Glass Protection</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>All Auto Power Windows</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Instrumentation</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>TFT Multi Information Display</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Dual Trip Odometer</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Outside Temperature Gauge</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Backup Camera</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Audio</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Audio System</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>USB Audio Input</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Antenna Shark Fin Type</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>4 Speakers</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>6 Speakers</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Storage</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Front Centre Console Box</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Driver and Passenger Opening Door Pockets</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Front Passenger Rear Seatback Pocket</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Front Cupholders</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Rear Cupholders</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div  style="padding-top: 75px;" id="exterior">
+          <h3>Exterior</h3>
+          <br>
+          <div >
+            <h5 style="color: green">Exterior Mirrors</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Power Mirrors</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Heated Mirrors</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Auto Rectractable Mirrors</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Wiper</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Rear Wiper</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>Rain Sensing Wipers</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Exterior Lighting</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Scoop Headlamps</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>LED Headlamps</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Turning Sequential Lights</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Fog Lamps</b></td>
+                <td><i style="color: rgba(82, 179, 217, 1)" class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td><b>LED Tail lights</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Wheels</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Wheel Size</b></td>
+                <td><span style="margin-left: 30px">{{carDim1.wheelSize}}</span></td>
+              </tr>
+              <tr>
+                <td><b>Tyre Size</b></td>
+                <td>{{carDim1.tyreSize}}</td>
+              </tr>
+              <tr>
+                <td><b>Alloy Wheels</b></td>
+                <td><i style="color: red;  margin-left: 40px;" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <h5 style="color: green">Exterior</h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 650px"><b>Nickel Door Handles</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Sunroof</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Front Bumper Rear Bumper Nickle Body Design</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Side Nickle Beadings</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td><b>Rear Spoiler</b></td>
+                <td><i style="color: red" class="fas fa-times"></i></td>
+              </tr>
+              </tbody>
+            </table>
+            <!--<h5 style="color: green">Audio</h5>-->
+            <!--<table class="table">-->
+              <!--<tbody>-->
+              <!--<tr>-->
+                <!--<td><b>Audio System</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>USB Audio Input</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>Antenna Shark Fin Type</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>4 Speakers</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>6 Speakers</b></td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+            <!--<h5 style="color: green">Storage</h5>-->
+            <!--<table class="table">-->
+              <!--<tbody>-->
+              <!--<tr>-->
+                <!--<td><b>Front Centre Console Box</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>Driver and Passenger Opening Door Pockets</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>Front Passenger Rear Seatback Pocket</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>Front Cupholders</b></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td><b>Rear Cupholders</b></td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Other details end-->
+</div>
+
+</div>
+</div>

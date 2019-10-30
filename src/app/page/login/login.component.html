@@ -1,0 +1,116 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+</div>
+
+<!--<ng-template #loggedOut>-->
+  <!--<div class="row col-sm-6" style="max-width:350px;">-->
+    <!--<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>-->
+      <!--<div class="form-group">-->
+        <!--<label for="username">Username</label>-->
+        <!--<input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"-->
+               <!--required />-->
+        <!--<div *ngIf="f.submitted && username.invalid">-->
+          <!--<div *ngIf="username.errors.required">Username is required</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="password">Password</label>-->
+        <!--<input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"-->
+               <!--required minlength="6" />-->
+        <!--<div *ngIf="f.submitted && password.invalid">-->
+          <!--<div *ngIf="password.errors.required">Password is required</div>-->
+          <!--<div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<button class="btn btn-primary">Login</button>-->
+        <!--<div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">-->
+          <!--Login failed: {{errorMessage}}-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</form>-->
+    <!--<hr />-->
+    <!--<p>Don't have an account?</p>-->
+    <!--<a href="signup" class="btn btn-success">Sign Up</a>-->
+  <!--</div>-->
+<!--</ng-template>-->
+<ng-template #loggedOut>
+<div class="limiter">
+  <div style="background-color: #1b1e21; color: white; margin:50px; margin-bottom: 0px;!important;" class="alert alert-info"><b><h4>Account Login</h4></b></div>
+  <div style="margin-top: 0px!important; padding-top: 0px;" class="container-login100">
+    <div style=" margin-top: 0px!important; padding-top: 0px; " class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+      <form style="margin-top: 0px!important; padding-top: 0px;" class="login100-form validate-form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+					<span class="login100-form-title p-b-33">
+						Account Login
+					</span>
+
+        <div class="wrap-input100 validate-input form-group" data-validate = "Valid email is required: ex@abc.xyz">
+          <!--<label style="color: white!important;" for="username">Username</label>-->
+          <input style="" type="text" class="form-control input100" name="username" [(ngModel)]="form.username" #username="ngModel" placeholder="Username"
+                 required />
+          <div *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Username is required</div>
+          </div>
+          <span class="focus-input100-1"></span>
+          <span class="focus-input100-2"></span>
+        </div>
+
+        <div class="wrap-input100 rs1 validate-input form-group" data-validate="Password is required">
+          <!--<label style="color: white!important;" for="password">Password</label>-->
+          <input style="" type="password" class="form-control input100" name="password" [(ngModel)]="form.password" #password="ngModel" placeholder="Password"
+                 required minlength="6" />
+          <div *ngIf="f.submitted && password.invalid">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+          <span class="focus-input100-1"></span>
+          <span class="focus-input100-2"></span>
+        </div>
+
+        <div class="container-login100-form-btn m-t-20 form-group">
+          <button style="margin-left: 420px; margin-top: 20px!important;" class="btn btn-outline-info my-2 my-sm-0 ">Login</button>
+          <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+            Login failed: {{errorMessage}}
+          </div>
+        </div>
+
+        <div class="text-center p-t-45 p-b-4">
+						<span class="txt1">
+							Forgot
+						</span>
+
+          <a href="#" class="txt2 hov1">
+            Username / Password?
+          </a>
+        </div>
+
+        <div class="text-center">
+						<span class="txt1">
+							 <p>Don't have an account?</p>
+						</span>
+
+          <!--<a href="#" class="nav-link" routerLink="/register" class="txt2 hov1">-->
+            <a href="signup" style="color: black" class="btn btn-success nav-link txt2 hov1">Sign Up</a>
+          <!--</a>-->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</ng-template>
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>

@@ -1,0 +1,127 @@
+<div ng-app="myApp" ng-controller="myCtrl">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Add Service Stations To The System</b></div>
+  <!--<div *ngIf="info.token">-->
+  <div>
+    <form #createServiceStationForm="ngForm" (ngSubmit)="onCreateServiceStation()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="stationName">Station Name *</label>
+            <input type="text" class="form-control" id="stationName" [(ngModel)]="serviceStation.stationName" name="stationName" aria-describedby="stationNameHelp" placeholder="Enter Service Station Name Here" required>
+            <small id="stationNameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="mainCity">Main City *</label>
+            <input type="text" class="form-control" id="mainCity" [(ngModel)]="serviceStation.mainCity" name="mainCity" aria-describedby="mainCityHelp" placeholder="Enter Main City Here" required>
+            <small id="mainCityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="stationAddress">Station Address *</label>
+            <input type="text" class="form-control" id="stationAddress" [(ngModel)]="serviceStation.stationAddress" name="stationAddress" aria-describedby="stationAddressHelp" placeholder="Enter Address Here" required>
+            <small id="mainCityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="stationPhoneNo">Telephone No. *</label>
+            <input type="text" class="form-control" id="stationPhoneNo" [(ngModel)]="serviceStation.stationPhoneNo" name="stationPhoneNo" aria-describedby="stationPhoneNoHelp" placeholder="Enter Phone Number Here" required>
+            <small id="stationPhoneNoHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <!--<div class="form-group">-->
+            <!--<label for="subTitle">Sub Title</label>-->
+            <!--<input type="text" class="form-control" id="subTitle" formControlName="subTitle" aria-describedby="subTitleHelp" placeholder="Enter Subtitle Here">-->
+            <!--<small id="subTitleHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="newsDate">News Date</label>-->
+            <!--<input type="date" class="form-control" id="newsDate" formControlName="newsDate" aria-describedby="subTitleHelp" placeholder="Enter Subtitle Here">-->
+            <!--<small id="subTitleHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="stationEmail">Email *</label>
+            <input type="text" class="form-control" id="stationEmail" [(ngModel)]="serviceStation.stationEmail" name="stationEmail" aria-describedby="stationEmailHelp" placeholder="Enter Email Here" required>
+            <small id="stationEmailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="latitude">Latitude *</label>
+            <input type="text" class="form-control" id="latitude" [(ngModel)]="serviceStation.latitude" name="latitude" aria-describedby="latitudeHelp" placeholder="Enter Latitude Here" required>
+            <small id="latitudeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="longitude">Longitude *</label>
+            <input type="text" class="form-control" id="longitude" [(ngModel)]="serviceStation.longitude" name="longitude" aria-describedby="longitudeHelp" placeholder="Enter Longitude Here" required>
+            <small id="longitudeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+          <!--<div class="form-group">-->
+            <!--<label for="file">Upload News Image</label>-->
+            <!--<input (change)="fileChange($event)" formControlName="file" type="file" class="form-control" id="file"-->
+                   <!--placeholder="Upload Vehicle Image">-->
+            <!--<small id="vehicleMakeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+
+
+        </div>
+      </div>
+      <div>
+        <button [disabled]="!createServiceStationForm.valid" style="margin-right: 100px"  type="submit"
+                class="btn btn-outline-success float-right">Add Service Station
+        </button>
+      </div>
+      <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+    </form>
+  </div>
+  <!--<h2>Content from Firebase</h2>-->
+  <!--<div class="col-md-6">-->
+    <!--<pre *ngFor="let serviceStation of serviceStations | async">latitude :{{serviceStation.latitude}}, longitude :{{serviceStation.longitude}}</pre>-->
+  <!--</div>-->
+</div>
+<br>
+<br>
+<br>
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Registered Vehicle Service Stations in the System</b></div>
+  <div>
+    <!--<button (click)="openConfirmationDialog()" type="button" class="btn btn-primary">Open dialog</button>-->
+    <table class="table vehicleMaintenanceTable">
+      <thead>
+      <tr>
+        <!--<th>ID</th>-->
+        <th>Station</th>
+        <!--<th>Main City</th>-->
+        <th>Address</th>
+        <th>Tel No.</th>
+        <th>Email</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Deletion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      </tr>
+      <!--<tr *ngFor="let serviceStation of serviceStations | async">-->
+      <tr *ngFor="let serviceStationData of serviceStations">
+        <!--<td>{{serviceStation.key}}</td>-->
+        <td>{{serviceStationData.stationName}}</td>
+        <!--<td>{{serviceStationData.mainCity}}</td>-->
+        <td>{{serviceStationData.stationAddress}}</td>
+        <td>{{serviceStationData.stationPhoneNo}}</td>
+        <td>{{serviceStationData.stationEmail}}</td>
+        <!--<td><img style=" width: 70px; height: 50px;" class=" img-responsive rounded" [src]="adminCar.image" alt="Card image cap"></td>-->
+        <td>{{serviceStationData.latitude}}</td>
+        <td>{{serviceStationData.longitude}}</td>
+        <td><div class="">
+          <button style="" (click)="deleteSelectedStation(serviceStationData.key)"  class="btn btn-outline-danger">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Delete
+          </button>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

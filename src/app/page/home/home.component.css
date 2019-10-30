@@ -1,0 +1,128 @@
+
+.float{
+  position: fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#0C9;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+  vertical-align: middle !important;
+
+}
+
+.my-float{
+  margin-top:22px;
+  vertical-align: middle !important;
+
+}
+
+#menu-outer {
+  height: 78px;
+}
+
+/*.table {*/
+/*display: table;   !* Allow the centering to work *!*/
+/*margin: 0 auto;*/
+/*}*/
+
+ul#horizontal-list {
+  min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+}
+ul#horizontal-list li {
+  display: inline;
+}
+
+ul#horizontal-list button{
+  /*background-color: #1b1e21;*/
+  /*color: white;*/
+}
+div.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0px;
+  background-color: black;
+  z-index: 2;
+}
+nav{
+  background-color: black;
+  color: white!important;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  /*background-color: #333;*/
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  border-bottom: 3px solid transparent;
+  border-right:1px solid blue;
+  -webkit-border-bottom-right-radius: 15px;
+
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid red;
+  color: lightseagreen;
+}
+
+.topnav a.active {
+  border-bottom: 3px solid red;
+}
+
+agm-map{
+  height: 500px!important;
+}
+
+
+/*Service Appointment styles*/
+.replyModal{
+  position: fixed!important;
+  top: 0px!important;
+  right: 10px!important;
+  bottom: 0px!important;
+  left: 400px!important;
+  z-index: 10040!important;
+  overflow: auto!important;
+  overflow-y: auto!important;
+
+}
+.buttonRound{
+  width: 220px;
+  /*height: 50px;*/
+  /*padding: 10px 16px;*/
+  /*former radius was 35*/
+  border-radius: 20px;
+  /*font-size: 17px;*/
+  /*border-color: transparent;*/
+  /*line-height: 1.33;*/
+  /*background-color: green;*/
+  /*color: white;*/
+
+}
+.replyMessageInputPrefix{
+  background-color: #22313f;
+  color: white;
+  border-color:transparent;
+}
+
+.replyMessageInput{
+  background-color: #2c3e50!important;
+  color: white!important;
+  border-color:transparent;
+}
+
+/**/

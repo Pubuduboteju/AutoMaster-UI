@@ -1,0 +1,33 @@
+<div>
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Delete Vehicle in the System</b></div>
+  <div>
+    <!--<button (click)="openConfirmationDialog()" type="button" class="btn btn-primary">Open dialog</button>-->
+    <table class="table vehicleMaintenanceTable">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Vehicle Image</th>
+        <th>Vehicle Model</th>
+        <th>Vehicle Make</th>
+        <th>Deletion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      </tr>
+      <tr *ngFor="let adminCar of adminCars">
+        <td>{{adminCar.id}}</td>
+        <td><img style=" width: 70px; height: 50px;" class=" img-responsive rounded" [src]="adminCar.image" alt="Card image cap"></td>
+        <td>{{adminCar.vehicleModel}}</td>
+        <td>{{adminCar.vehicleMake}}</td>
+        <td><div class="">
+          <button style="" (click)="deleteSelectedAdminCar(adminCar.id)"  class="btn btn-outline-danger">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Delete
+          </button>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

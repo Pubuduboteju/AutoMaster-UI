@@ -1,0 +1,16 @@
+<div>
+  <div style="background-color: #1b1e21; color: white" class="modal-header">
+    <h4 class="modal-title">{{ title }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span style="color: white" aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div style="background-color: #2F4F4F; color: white;" class="modal-body">
+    {{ message }}
+  </div>
+  <div style="background-color: #1b1e21; color: white" class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="decline()">{{ btnCancelText }}</button>
+    <button type="button" class="btn btn-danger" (click)="accept()">{{ btnOkText }}</button>
+  </div>
+</div>
+

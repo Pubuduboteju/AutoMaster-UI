@@ -1,0 +1,195 @@
+<div style="margin:50px;">
+  <!--Back color was  #013243-->
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b><h4>Vehicle Problems</h4></b></div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <!--<select ng-model="selectedName" ng-options="item for item in names">Select vehicle model</select>-->
+    <select id="ms_series" name="ms_series" (change)="carOnChange($event.target.value)" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 300px;">
+      <option>Vehicle Model</option>
+      <option style="width: 60px;" *ngFor="let car1 of cars" [value]="car1.id">{{car1.vehicleModel}}</option>
+    </select>
+  </div>
+  <br>
+  <div *ngIf="car">
+    <div class="row">
+      <div class="col-md-5">
+        <img style="margin-left:300px;" class="card-img-top" [src]="car.image" alt="Card image cap">
+      </div>
+    </div>
+    <h3> {{car.vehicleModel}} Specifications</h3>
+    <div class="card-body">
+      <!--<label>Vehicle name</label>-->
+      <!--<h5 class="card-title float-right">{{car.name}}</h5>-->
+      <!--<label>Details</label>-->
+      <!--<p class="card-text">{{car.description}}</p>-->
+      <!--</div>-->
+      <!--<p>{{car.id}}</p>-->
+      <!--<p>{{car.name}}</p>-->
+      <!--<p>{{car.description}}</p>-->
+      <table style="width: 1000px;" class="table userVehicleSpecTable">
+        <tbody>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Vehicle Model</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;"><b>{{car.vehicleModel}}</b></td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Vehicle Make</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{car.vehicleMake}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Trim/Edition</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{car.trim_edition}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Model Year</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{car.modelYear}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Body Type</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{car.bodyType}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Engine Capacity</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{car.engineCapacity}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Transmission</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{car.transmission}}</td>
+        </tr>
+        <tr>
+          <td style="max-width: 200px!important;"><b>Fuel Type</b></td>
+          <td style="margin-left: 0px; padding-left: 0px;">{{car.fuelType}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div><h3>{{car.vehicleModel}} User Comments</h3></div>
+    <br>
+    <div>
+      <form class="validate-form form-group" novalidate [formGroup]="newUserCommentForm">
+        <div class="form-row">
+          <div class="form-group input-group col-md-3">
+            <div class="input-group-prepend">
+              <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Logged in as :</div>
+            </div>
+            <input disabled="disabled" style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="Name">
+          </div>
+          <div class="form-group input-group col-md-3">
+            <div class="input-group-prepend">
+              <div style="background-color: black; color: white;  border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Commenting on :</div>
+            </div>
+            <input disabled style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control" type="text" formControlName="vehicleName" placeholder="vehicle Name">
+          </div>
+          <div class="form-group input-group col-md-4">
+            <div class="input-group-prepend">
+              <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Rate this vehicle :</div>
+            </div>
+            <div style="text-align:center">
+              <star-rating value="1" checkedcolor="orange" uncheckedcolor="white" size="24px"    readonly="false" (rate)="onRate($event)"></star-rating>
+            </div>
+          </div>
+          <!--<div class="form-group col-md-6">-->
+            <!--<textarea style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent"  class=" form-control " type="text" formControlName="comment" placeholder="Wrtite your comment here"></textarea>-->
+          <!--</div>-->
+          <!--<div class="form-group col-md-2">-->
+            <!--<div class="container-login100-form-btn  float-right">-->
+              <!--<button style="" (click)="onCreateNewComment(newUserCommentForm.value)" [disabled]="!newUserCommentForm.valid" class="btn btn-outline-success my-2 my-sm-0">-->
+                <!--<i class="fas fa-comment-dots"></i>  Write Comment-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</div>-->
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-10">
+            <textarea style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent"  class=" form-control " type="text" formControlName="comment" placeholder="Wrtite your comment here"></textarea>
+          </div>
+          <div class="form-group col-md-2">
+            <div class="container-login100-form-btn  float-right">
+              <button style="" (click)="onCreateNewComment(newUserCommentForm.value)" [disabled]="!newUserCommentForm.valid" class="btn btn-outline-success my-2 my-sm-0">
+                <i class="fas fa-comment-dots"></i>  Write Comment
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--<input style="margin-right: 20px; max-width: 200px;" class=" form-control  mb-2" type="text" formControlName="userName" placeholder="Name">-->
+        <!--<input style="margin-right: 20px; max-width: 250px;" class=" form-control mx-sm-3 mb-2" type="text" formControlName="vehicleName" placeholder="vehicle Name">-->
+        <!--<input style="max-width: 500px;" class=" form-control mx-sm-3 mb-2" type="text" formControlName="comment" placeholder="Wrtite your comment here">-->
+        <!--<div class="container-login100-form-btn m-t-20 float-right">-->
+          <!--<button (click)="onCreateNewComment(newUserCommentForm.value)" [disabled]="!newUserCommentForm.valid" class="login100-form-btn">-->
+            <!--Create Comment-->
+          <!--</button>-->
+        <!--</div>-->
+      </form>
+    </div>
+    <br>
+    <!--<div class="table-responsive userCommentsTable">-->
+      <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>Person</th>-->
+          <!--<th>Vehicle Model</th>-->
+          <!--<th>Comment</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+          <!--&lt;!&ndash;<form class="validate-form" novalidate [formGroup]="newCommentForm">&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;<td>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<input class="input100" type="text" formControlName="userName" placeholder="User Name">&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;</td>&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;<td>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<input class="input100" type="text" formControlName="vehicleName" placeholder="Vehicle Name">&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;</td>&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;<td>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<input class="input100" type="text" formControlName="comment" placeholder="Write Your Comment">&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;</td>&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;</form>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr *ngFor="let showUserComment of showUserComments">-->
+          <!--<td>{{showUserComment.userName}}</td>-->
+          <!--<td>{{showUserComment.vehicleName}}</td>-->
+          <!--<td>{{showUserComment.comment}}</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+      <!--</table>-->
+    <!--</div>-->
+    <div class="commentsSection">
+     <div *ngFor="let showUserComment of showUserComments" class="commentRow row">
+       <div style="background-color: #24252a; padding: 20px;" class="col-md-3">
+        <img style="height: 50px; width: 50px; text-align: center" class="img-fluid" src="../../../assets/images/userCommentsImage.png">
+         <div>
+           <label style="text-align: left; clear: both" for="userName"><i>Name : </i></label>
+           <h5 style="display: inline-block; text-transform: capitalize" id="userName">{{showUserComment.userName}}</h5>
+         </div>
+         <div>
+           <label style="text-align: left; clear: both" for="vehicleModel"><i>Vehicle Model : </i></label>
+           <p style="display: inline-block;" id="vehicleModel">{{showUserComment.vehicleName}}</p>
+         </div>
+         <!--<div style="display:flex; flex-direction: row;">-->
+           <!--<label for="Student">Name:</label>-->
+           <!--<p style="display: inline-block; text-transform: capitalize" id="userName">{{showUserComment.userName}}</p>-->
+         <!--</div>-->
+
+       </div>
+       <div  class="col-md-8">
+         <div *ngIf="showUserComment.commentDate" style="margin-left: 5px;" class="row"> <i><i class="fas fa-calendar-alt"></i> Posted :</i> {{showUserComment.commentDateString}}</div>
+         <div  *ngIf="!showUserComment.commentDate" style="margin-left: 5px;" class="row"> <i><i class="fas fa-calendar-alt"></i> Posted :</i> 19th September, 2019 9:14 am</div>
+         <div style="padding: 20px;" > <i class="fas fa-quote-left"></i> {{showUserComment.comment}} <i class="fas fa-quote-right"></i></div>
+         <div class="row">
+           <!--<div class="float-right" style="text-align: right; margin-left: 700px; margin-top: 10px;">-->
+             <!--<span class="fa fa-star checked"></span>-->
+             <!--<span class="fa fa-star checked"></span>-->
+             <!--<span class="fa fa-star checked"></span>-->
+             <!--<span class="fa fa-star checked"></span>-->
+             <!--<span class="fa fa-star"></span>-->
+             <!--<span> 4.7</span>-->
+           <!--</div>-->
+           <div style="text-align:center;margin-left: 600px; margin-top: 10px;">
+             <star-rating value="{{showUserComment.vehicleRate}}" checkedcolor="orange" uncheckedcolor="white" size="24px"    readonly="true" ></star-rating>
+           </div>
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
+</div>

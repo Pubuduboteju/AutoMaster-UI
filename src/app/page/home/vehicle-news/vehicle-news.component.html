@@ -1,0 +1,404 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="margin-left: 50px;" class="container cta-100 ">
+  <div class="container">
+    <div class="row blog">
+      <div class="col-md-12">
+        <h3 style="text-align: center">Latest Vehicle News</h3>
+        <br>
+        <br>
+        <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#blogCarousel" data-slide-to="1"></li>
+          </ol>
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div *ngFor="let vehicleNewsRow1 of vehicleNews1" class="col-md-4" >
+                  <div class="item-box-blog">
+                    <div class="item-box-blog-image">
+                      <!--Date-->
+                      <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><i style="font-size: 15px;">{{vehicleNewsRow1.newsDateString}}</i></span> </div>
+                      <!--Image-->
+                      <figure> <img alt="" src="{{vehicleNewsRow1.image}}"> </figure>
+                    </div>
+                    <div class="item-box-blog-body">
+                      <!--Heading-->
+                      <div class="item-box-blog-heading">
+                        <a href="#" tabindex="0">
+                          <h3>{{vehicleNewsRow1.title}}</h3>
+                        </a>
+                      </div>
+                      <!--Data-->
+                      <div class="item-box-blog-data" style="padding: 15px;">
+                        <!--<p><i class="fa fa-user-o"></i> {{vehicleNewsRow.subTitle}} <i class="fa fa-comments-o"></i> Comments(3)</p>-->
+                        <p><i class="fa fa-user-o"></i> {{vehicleNewsRow1.subTitle}}</p>
+                      </div>
+                      <!--Text-->
+                      <div class="item-box-blog-text">
+                        <p>{{vehicleNewsRow1.description}}</p>
+                      </div>
+                      <!--<div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>-->
+                      <div class="mt">
+                        <button style="" [attr.data-target]="'#viewMoreModalForNews1' + vehicleNewsRow1.id" data-toggle="modal" class="btn btn-outline-info bg-blue-ui white read ">
+                          <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+                          <i class="fas fa-eye"></i> Read More >>
+                        </button>
+                      </div>
+                      <!--Read More Button-->
+                    </div>
+                  </div>
+                  <!--Model-starts from here-->
+                  <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+                       aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div style="background-color: #1b1e21; color: white;" class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">{{vehicleNewsRow1.title}} - {{vehicleNewsRow1.subTitle}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class=""><img class="img-fluid" src="{{vehicleNewsRow1.image}}"></div>
+                          <div class="float-right"><i>News Date : {{vehicleNewsRow1.newsDateString}}</i></div>
+                          <br>
+                          <h5 style="color: green">Description :</h5>
+                          <p style="padding-left: 10px;">{{vehicleNewsRow1.description}}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <!--<button style="" data-dismiss="modal" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+                          <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+                          <!--<i class="fas fa-reply-all"></i> Reply-->
+                          <!--</button>-->
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+                          <!--class="btn btn-primary">Create-->
+                          <!--</button>-->
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!--Model ends-->
+
+                </div>
+                <!--<div class="col-md-4" >-->
+                  <!--<div class="item-box-blog">-->
+                    <!--<div class="item-box-blog-image">-->
+                      <!--&lt;!&ndash;Date&ndash;&gt;-->
+                      <!--<div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Augu 01</span> </div>-->
+                      <!--&lt;!&ndash;Image&ndash;&gt;-->
+                      <!--<figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>-->
+                    <!--</div>-->
+                    <!--<div class="item-box-blog-body">-->
+                      <!--&lt;!&ndash;Heading&ndash;&gt;-->
+                      <!--<div class="item-box-blog-heading">-->
+                        <!--<a href="#" tabindex="0">-->
+                          <!--<h5>News Title</h5>-->
+                        <!--</a>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Data&ndash;&gt;-->
+                      <!--<div class="item-box-blog-data" style="padding: px 15px;">-->
+                        <!--<p><i class="fa fa-user-o"></i> Admin, <i class="fa fa-comments-o"></i> Comments(3)</p>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Text&ndash;&gt;-->
+                      <!--<div class="item-box-blog-text">-->
+                        <!--<p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>-->
+                      <!--</div>-->
+                      <!--<div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>-->
+                      <!--&lt;!&ndash;Read More Button&ndash;&gt;-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-4" >-->
+                  <!--<div class="item-box-blog">-->
+                    <!--<div class="item-box-blog-image">-->
+                      <!--&lt;!&ndash;Date&ndash;&gt;-->
+                      <!--<div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Augu 01</span> </div>-->
+                      <!--&lt;!&ndash;Image&ndash;&gt;-->
+                      <!--<figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>-->
+                    <!--</div>-->
+                    <!--<div class="item-box-blog-body">-->
+                      <!--&lt;!&ndash;Heading&ndash;&gt;-->
+                      <!--<div class="item-box-blog-heading">-->
+                        <!--<a href="#" tabindex="0">-->
+                          <!--<h5>News Title</h5>-->
+                        <!--</a>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Data&ndash;&gt;-->
+                      <!--<div class="item-box-blog-data" style="padding: px 15px;">-->
+                        <!--<p><i class="fa fa-user-o"></i> Admin, <i class="fa fa-comments-o"></i> Comments(3)</p>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Text&ndash;&gt;-->
+                      <!--<div class="item-box-blog-text">-->
+                        <!--<p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>-->
+                      <!--</div>-->
+                      <!--<div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>-->
+                      <!--&lt;!&ndash;Read More Button&ndash;&gt;-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              </div>
+              <!--.row-->
+            </div>
+            <!--.item-->
+            <div class="carousel-item ">
+              <div class="row">
+                <div *ngFor="let vehicleNewsRow2 of vehicleNews2" class="col-md-4" >
+                  <div class="item-box-blog">
+                    <div class="item-box-blog-image">
+                      <!--Date-->
+                      <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><i style="font-size: 15px;">{{vehicleNewsRow2.newsDateString}}</i></span> </div>
+                      <!--Image-->
+                      <figure> <img alt="" src="{{vehicleNewsRow2.image}}"> </figure>
+                    </div>
+                    <div class="item-box-blog-body">
+                      <!--Heading-->
+                      <div class="item-box-blog-heading">
+                        <a href="#" tabindex="0">
+                          <h3>{{vehicleNewsRow2.title}}</h3>
+                        </a>
+                      </div>
+                      <!--Data-->
+                      <div class="item-box-blog-data" style="padding: px 15px;">
+                        <p><i class="fa fa-user-o"></i>{{vehicleNewsRow2.subTitle}}</p>
+                      </div>
+                      <!--Text-->
+                      <div class="item-box-blog-text">
+                        <p>{{vehicleNewsRow2.description}}</p>
+                      </div>
+                      <div class="mt">
+                        <!--<a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a>-->
+                        <button style="" [attr.data-target]="'#viewMoreModalForNews2' + vehicleNewsRow2.id" data-toggle="modal" class="btn btn-outline-info bg-blue-ui white read ">
+                          <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+                          <i class="fas fa-eye"></i> Read More >>
+                        </button>
+                      </div>
+                      <!--Read More Button-->
+                    </div>
+                  </div>
+                  <!--Model-starts from here-->
+                  <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+                       aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div style="background-color: #1b1e21; color: white;" class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">{{vehicleNewsRow2.title}} - {{vehicleNewsRow2.subTitle}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class=""><img class="img-fluid" src="{{vehicleNewsRow2.image}}"></div>
+                          <div class="float-right"><i>News Date : {{vehicleNewsRow2.newsDateString}}</i></div>
+                          <br>
+                          <h5 style="color: green">Description :</h5>
+                          <p style="padding-left: 10px;">{{vehicleNewsRow2.description}}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <!--<button style="" data-dismiss="modal" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+                          <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+                          <!--<i class="fas fa-reply-all"></i> Reply-->
+                          <!--</button>-->
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+                          <!--class="btn btn-primary">Create-->
+                          <!--</button>-->
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!--Model ends-->
+
+                </div>
+                <!--<div class="col-md-4" >-->
+                  <!--<div class="item-box-blog">-->
+                    <!--<div class="item-box-blog-image">-->
+                      <!--&lt;!&ndash;Date&ndash;&gt;-->
+                      <!--<div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Augu 01</span> </div>-->
+                      <!--&lt;!&ndash;Image&ndash;&gt;-->
+                      <!--<figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>-->
+                    <!--</div>-->
+                    <!--<div class="item-box-blog-body">-->
+                      <!--&lt;!&ndash;Heading&ndash;&gt;-->
+                      <!--<div class="item-box-blog-heading">-->
+                        <!--<a href="#" tabindex="0">-->
+                          <!--<h5>News Title</h5>-->
+                        <!--</a>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Data&ndash;&gt;-->
+                      <!--<div class="item-box-blog-data" style="padding: px 15px;">-->
+                        <!--<p><i class="fa fa-user-o"></i> Admin, <i class="fa fa-comments-o"></i> Comments(3)</p>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Text&ndash;&gt;-->
+                      <!--<div class="item-box-blog-text">-->
+                        <!--<p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>-->
+                      <!--</div>-->
+                      <!--<div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>-->
+                      <!--&lt;!&ndash;Read More Button&ndash;&gt;-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-4" >-->
+                  <!--<div class="item-box-blog">-->
+                    <!--<div class="item-box-blog-image">-->
+                      <!--&lt;!&ndash;Date&ndash;&gt;-->
+                      <!--<div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Augu 01</span> </div>-->
+                      <!--&lt;!&ndash;Image&ndash;&gt;-->
+                      <!--<figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>-->
+                    <!--</div>-->
+                    <!--<div class="item-box-blog-body">-->
+                      <!--&lt;!&ndash;Heading&ndash;&gt;-->
+                      <!--<div class="item-box-blog-heading">-->
+                        <!--<a href="#" tabindex="0">-->
+                          <!--<h5>News Title</h5>-->
+                        <!--</a>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Data&ndash;&gt;-->
+                      <!--<div class="item-box-blog-data" style="padding: px 15px;">-->
+                        <!--<p><i class="fa fa-user-o"></i> Admin, <i class="fa fa-comments-o"></i> Comments(3)</p>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash;Text&ndash;&gt;-->
+                      <!--<div class="item-box-blog-text">-->
+                        <!--<p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>-->
+                      <!--</div>-->
+                      <!--<div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>-->
+                      <!--&lt;!&ndash;Read More Button&ndash;&gt;-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              </div>
+              <!--.row-->
+            </div>
+            <!--.item-->
+          </div>
+          <!--.carousel-inner-->
+        </div>
+        <!--.Carousel-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Vehicle news carousal-->
+
+<!--Model-1-->
+<div class="modal fade" id="camry" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: #1b1e21; color: white;" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">TOYOTA CAMRY</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color: white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class=""><img class="img-fluid" src="../../../../assets/images/toyota-2020-xle-celestial-silver-metallic-l23.jpg"></div>
+
+        <ul>
+          <li>Check installation of driver's floor mat</li>
+          <li>Check for open campaigns/recalls</li>
+          <li>Rotate tires and check condition (tread depth)</li>
+          <li>Set tire pressures to correct PSI</li>
+          <li>Check that all exterior light bulbs are functioning</li>
+          <li>Inspect front and rear brake components</li>
+          <li>Inspect and top off fluid levels</li>
+          <li>Perform multi-point inspection with print-out</li>
+          <li>Road test of vehicle</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+        <!--class="btn btn-primary">Create-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+
+<div *ngFor="let vehicleNewsRow1 of vehicleNews1">
+  <!--Model-starts from here-->
+  <div class="modal fade" id="viewMoreModalForNews1{{vehicleNewsRow1.id}}" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #1b1e21; color: white;" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{vehicleNewsRow1.title}} - {{vehicleNewsRow1.subTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span style="color: white" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class=""><img class="img-fluid" src="{{vehicleNewsRow1.image}}"></div>
+          <div class="float-right"><i>News Date : {{vehicleNewsRow1.newsDateString}}</i></div>
+          <br>
+          <h5 style="color: green">Description :</h5>
+          <p style="padding-left: 10px;">{{vehicleNewsRow1.description}}</p>
+        </div>
+        <div class="modal-footer">
+          <!--<button style="" data-dismiss="modal" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+          <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+          <!--<i class="fas fa-reply-all"></i> Reply-->
+          <!--</button>-->
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+          <!--class="btn btn-primary">Create-->
+          <!--</button>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--Model ends-->
+</div>
+
+<div *ngFor="let vehicleNewsRow2 of vehicleNews2">
+  <!--Model-starts from here-->
+  <div class="modal fade" id="viewMoreModalForNews2{{vehicleNewsRow2.id}}" tabindex="-1" role="dialog" aria-labelledby="createCarModel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #1b1e21; color: white;" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{vehicleNewsRow2.title}} - {{vehicleNewsRow2.subTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span style="color: white" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class=""><img class="img-fluid" src="{{vehicleNewsRow2.image}}"></div>
+          <div class="float-right"><i>News Date : {{vehicleNewsRow2.newsDateString}}</i></div>
+          <br>
+          <h5 style="color: green">Description :</h5>
+          <p style="padding-left: 10px;">{{vehicleNewsRow2.description}}</p>
+        </div>
+        <div class="modal-footer">
+          <!--<button style="" data-dismiss="modal" [attr.data-target]="'#replyModal' + generalUserMessage.id" (click)="setValuesGeneralUserMessageForm(generalUserMessage)"  data-toggle="modal" class="btn btn-outline-info ">-->
+          <!--&lt;!&ndash;<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ndash;&gt;-->
+          <!--<i class="fas fa-reply-all"></i> Reply-->
+          <!--</button>-->
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!--<button (click)="onCreateNewCar(createCarForm.value)" [disabled]="!createCarForm.valid" type="button"-->
+          <!--class="btn btn-primary">Create-->
+          <!--</button>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--Model ends-->
+</div>

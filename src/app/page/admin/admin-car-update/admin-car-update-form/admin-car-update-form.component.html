@@ -1,0 +1,1113 @@
+<div style="margin-bottom: 100px;" ng-app="myApp" ng-controller="myCtrl">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b>Update Existing Vehicle In The System</b></div>
+  <!--<div *ngIf="info.token">-->
+  <div>
+    <form novalidate [formGroup]="adminCarUpdateForm">
+      <!--<div class="form-group">-->
+      <!--<label for="userName">User Name</label>-->
+      <!--<input disabled="disabled" type="text" class="form-control" id="userName" formControlName="userName" aria-describedby="userNameHelp" placeholder="Enter User Name">-->
+      <!--<small id="userNameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="vehicleModel">Vehicle Model</label>
+            <input type="text" class="form-control" id="vehicleModel" formControlName="vehicleModel" aria-describedby="vehicleModelHelp" placeholder="Enter Vehicle Model">
+            <small id="vehicleModelHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="modelYear">Model Year</label>
+            <input type="text" class="form-control" id="modelYear" formControlName="modelYear" aria-describedby="modelYearHelp" placeholder="Enter Model Year">
+            <small id="modelYearHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="trim_edition">Trim/Edition</label>
+            <input type="text" class="form-control" id="trim_edition" formControlName="trim_edition" aria-describedby="trim_editionHelp" placeholder="Enter Trim/Edition">
+            <small id="trim_editionHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="engineCapacity">Engine Capacity</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="engineCapacity" formControlName="engineCapacity" aria-describedby="engineCapacityHelp" placeholder="Enter Engine Capacity">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">cc</span>
+              </div>
+            </div>
+            <small id="engineCapacityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <h4>Dimensions</h4>
+          <div class="form-group">
+            <label for="length">Length mm</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="length"  aria-describedby="lengthHelp" placeholder="Enter Length of the vehicle">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">mm</span>
+              </div>
+            </div>
+            <small id="lengthHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="width">Width mm</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="width"  aria-describedby="widthHelp" placeholder="Enter Width of the vehicle">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">mm</span>
+              </div>
+            </div>
+            <small id="widthHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="height">Height mm</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="height"  aria-describedby="heightHelp" placeholder="Enter Height of the vehicle">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">mm</span>
+              </div>
+            </div>
+            <small id="heightHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="seatingCapacity">Seating Capacity</label>
+            <input type="text" class="form-control" id="seatingCapacity"  aria-describedby="seatingCapacityHelp" placeholder="Enter Seating Capacity">
+            <small id="seatingCapacityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="grossVehicleWeight">Gross Vehicle Weight kg</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="grossVehicleWeight"  aria-describedby="grossVehicleWeightHelp" placeholder="Enter Gross Vehicle Weight ">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">kg</span>
+              </div>
+            </div>
+            <small id="grossVehicleWeightHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="cargoCapacity">Cargo Capacity L</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="cargoCapacity"  aria-describedby="cargoCapacityHelp" placeholder="Enter Cargo Capacity">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">l</span>
+              </div>
+            </div>
+            <small id="cargoCapacityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="fuelConsumptionCity">Fuel Consumption - City km/l</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="fuelConsumptionCity"  aria-describedby="fuelConsumptionCityHelp" placeholder="Enter Fuel Consumption - City">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">km/l</span>
+              </div>
+            </div>
+            <small id="fuelConsumptionCityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="fuelConsumptionHighway">Fuel Consumption - Highway km/l</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="fuelConsumptionHighway"  aria-describedby="fuelConsumptionHighwayHelp" placeholder="Enter Fuel Consumption - Highway">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">km/l</span>
+              </div>
+            </div>
+            <small id="fuelConsumptionHighwayHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="fuelConsumptionCombined">Fuel Consumption - Combined km/l</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="fuelConsumptionCombined"  aria-describedby="fuelConsumptionCombinedHelp" placeholder="Enter Fuel Consumption - Combined">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">km/l</span>
+              </div>
+            </div>
+            <small id="fuelConsumptionCombinedHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="horsePower">Horsepower (kW)</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="horsePower"  aria-describedby="horsePowerHelp" placeholder="Enter Vehicle Horsepower">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">kW</span>
+              </div>
+            </div>
+            <small id="horsePowerHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="turningCircle">Turning Circle m.</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="turningCircle"  aria-describedby="turningCircleHelp" placeholder="Enter Vehicle Turning Circle">
+              <div  class="input-group-append">
+                <span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">m</span>
+              </div>
+            </div>
+            <small id="turningCircleHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+          <h4>Convenience</h4>
+          <h5 style="padding-left: 10px; color: green">Convenience</h5>
+          <div class="form-group">
+            <label>Front & Rear Cup Holders</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Digital Clock</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Accessory Power Outlet (12 Volt)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Cruise Control</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Keyless Entry</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Push Button Start</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Smart Key System</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Power Mirrors</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Anti Glare Middle Mirror</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Center Lock</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Reading Lights</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+
+          <h4>Interior</h4>
+          <h5 style="padding-left: 10px; color: green">Steering Wheel & Dashboard</h5>
+          <div class="form-group">
+            <label>Synthetic Leather Wrapped Steering Wheel</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Teak Finish Dashboard</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Tilt & Telescopic Steering Wheel</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Touch Tracer Steering Wheel Controls</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Climate Control</h5>
+          <div class="form-group">
+            <label>Dual Zone Climate Control</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Automatic Temperature Control</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Cabin Air Filter</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rear Seat Heater Ducts</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Air Conditioning With Bacteria Destroying</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Seats</h5>
+          <div class="form-group">
+            <label>Leather Seats</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Electric Seat Adjusting</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Seat Lamba Adjusting</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Heated Front Seats</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rear Adjustable Seats</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Driver Seat Height Adjustable</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rear Seat Arm Rest</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Windows</h5>
+          <div class="form-group">
+            <label>UV Cut Glass Protection</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>All Auto Power Windows</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Instrumentation</h5>
+          <div class="form-group">
+            <label>TFT Multi Information Display</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Dual Trip Odometer</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Dual Trip Odometer</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Outside Temperature Gauge</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Backup Camera</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Audio</h5>
+          <div class="form-group">
+            <label>Audio System</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>USB Audio Input</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Antenna Shark Fin Type</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>4 Speakers</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>6 Speakers</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Storage</h5>
+          <div class="form-group">
+            <label>Front Centre Console Box</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Driver and Passenger Opening Door Pockets</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Front Passenger Rear Seatback Pocket</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Front Cupholders</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rear Cupholders</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="vehicleMake">Vehicle Make</label>
+            <input type="text" class="form-control" id="vehicleMake" formControlName="vehicleMake" aria-describedby="vehicleMakeHelp" placeholder="Enter Vehicle Make">
+            <small id="vehicleMakeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="bodyType">Body Type</label>
+            <input type="text" class="form-control" id="bodyType" formControlName="bodyType" aria-describedby="bodyTypeHelp" placeholder="Enter Body Type">
+            <small id="bodyTypeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="transmission">Transmission</label>
+            <select class="browser-default custom-select form-control" id="transmission" formControlName="transmission">
+              <option selected>Select vehicle transmission</option>
+              <option value="manual">Manual</option>
+              <option value="automatic">Automatic</option>
+              <option value="triptronic">Triptronic</option>
+            </select>
+            <small id="transmissionHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="fuelType">Fuel Type</label>
+            <select class="browser-default custom-select form-control" id="fuelType" formControlName="fuelType">
+              <option selected>Select fuel type</option>
+              <option value="Petrol">Petrol</option>
+              <option value="diesel">Diesel</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="electric">Electric</option>
+              <option value="petrolTurbo">Petrol turbo</option>
+              <option value="dieselTurbo">Diesel turbo</option>
+            </select>
+            <small id="fuelTypeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+          <!--<div class="form-group">-->
+            <!--<label for="file">Upload Vehicle Image</label>-->
+            <!--<input (change)="fileChange($event)" formControlName="file" type="file" class="form-control" id="file"-->
+                   <!--placeholder="Upload Vehicle Image">-->
+            <!--<small id="imageUploadHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+          <!--</div>-->
+
+          <h4>Mechanical</h4>
+          <h5 style="padding-left: 10px; color: green;">Suspension</h5>
+          <div class="form-group">
+            <label>Stabilizer Bar</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked  >
+              <div class="slider round"></div>
+            </label>
+            <!--<label class="switch" >-->
+            <!--<input type="checkbox" >-->
+            <!--<span class="slider round"></span>-->
+            <!--</label>-->
+          </div>
+          <div class="form-group">
+            <label>Macpherson Gas Struts</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Torsion Beam Type</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Mechanical Features</h5>
+          <div class="form-group">
+            <label>Vehicle Stability Control (VSC)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Traction Control System (TRAC)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Hill-start Assist Control (HAC)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Engine</h5>
+          <div class="form-group">
+            <label>Variable Valve Timing with Intelligence</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>ECO Mode</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>EV Mode</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Exhaust Heat Recovery System</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Brakes</h5>
+          <div class="form-group">
+            <label>Front Disc</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rear Disc</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rear Drum</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Transmission</h5>
+          <div class="form-group">
+            <label>Continuously Variable Transmission (CVT)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Toyota super CVT</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Manual</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Tires</h5>
+          <div class="form-group">
+            <label for="tyreSize">Tyre Size</label>
+            <input type="text" class="form-control" id="tyreSize"  aria-describedby="tyreSizeHelp" placeholder="Enter Tyre Size">
+            <small id="tyreSizeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label>Alloy Wheels</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Manual</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h4>Safety</h4>
+          <h5 style="padding-left: 10px; color: green">Safety</h5>
+          <div class="form-group">
+            <label>Front Seat Mounted Side Airbags</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Anchor Points for Child Restraint Seats</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Front and Rear Side Curtain Airbags</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Child Protector Rear Door Locks</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Assist Grips</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Driver Knee Airbag</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Driver & Passenger Airbag Supplemental<br> Restraint System (SRS)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Front Passenger Airbag Status Indicator</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>LED Brake Lamps</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Front Seat Cushion Airbags</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Warning</h5>
+          <div class="form-group">
+            <label>Low Fuel Warning Light</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Door Ajar</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Front Driver and Passenger Seatbelt</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Engine Heat Warnnig</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Low Engine Oil Level</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Tire Pressure Monitoring System</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Key Remind Warning</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Head Lamps On</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Star Safety System</h5>
+          <div class="form-group">
+            <label>Electronic Brake Force Distribution (EBD)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Brake Assist (BA)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Anti-lock Brake System (ABS)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Traction Control (TRAC)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Vehicle Stability Control (VSC)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Smart Stop Technology (SST)</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Toyota Safety Sense</h5>
+          <div class="form-group">
+            <label>Pre-Collision System with Pedestrian Detection</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Lane Departure Alert</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Blind Spot Assist</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Auto High Beam</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h4>Exterior</h4>
+          <h5 style="padding-left: 10px; color: green">Exterior Mirrors</h5>
+          <div class="form-group">
+            <label>Power Mirrors</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Heated Mirrors</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Auto Rectractable Mirrors</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Wiper</h5>
+          <div class="form-group">
+            <label>Rear Wiper</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rain Sensing Wipers</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Exterior Lighting</h5>
+          <div class="form-group">
+            <label>Scoop Headlamps</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" checked >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>LED Headlamps</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Turning Sequential Lights</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Fog Lamps</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  checked>
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>LED Tail lights</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Wheels</h5>
+          <div class="form-group">
+            <label for="rimSize">Rim Size</label>
+            <input type="text" class="form-control" id="rimSize"  aria-describedby="rimSizeHelp" placeholder="Enter Tyre Size">
+            <small id="rimSizeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="tyreSize2">Tyre Size</label>
+            <input type="text" class="form-control" id="tyreSize2"  aria-describedby="tyreSize2Help" placeholder="Enter Tyre Size">
+            <small id="tyreSize2Help" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label>Alloy Wheels</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)" >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <h5 style="padding-left: 10px; color: green">Exterior</h5>
+          <div class="form-group">
+            <label>Nickel Door Handles</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Sunroof</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Front Bumper Rear Bumper Nickle Body Design</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Side Nickle Beadings</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Rear Spoiler</label>
+            <label class="switch float-right" ng-if="s.type=='boolean'">
+              <input type="checkbox"   ng-model="s.boolean_value"  ng-change="updateSettings(s)"  >
+              <div class="slider round"></div>
+            </label>
+          </div>
+
+
+        </div>
+      </div>
+      <!--<div class="form-group">-->
+      <!--<label for="vehicleModel">Vehicle Model</label>-->
+      <!--<input type="text" class="form-control" id="vehicleModel" formControlName="vehicleModel" aria-describedby="vehicleModelHelp" placeholder="Enter Vehicle Model">-->
+      <!--<small id="vehicleModelHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="vehicleMake">Vehicle Make</label>-->
+      <!--<input type="text" class="form-control" id="vehicleMake" formControlName="vehicleMake" aria-describedby="vehicleMakeHelp" placeholder="Enter Vehicle Make">-->
+      <!--<small id="vehicleMakeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="modelYear">Model Year</label>-->
+      <!--<input type="text" class="form-control" id="modelYear" formControlName="modelYear" aria-describedby="modelYearHelp" placeholder="Enter Model Year">-->
+      <!--<small id="modelYearHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="bodyType">Body Type</label>-->
+      <!--<input type="text" class="form-control" id="bodyType" formControlName="bodyType" aria-describedby="bodyTypeHelp" placeholder="Enter Body Type">-->
+      <!--<small id="bodyTypeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="engineCapacity">Engine Capacity</label>-->
+      <!--<div class="input-group">-->
+      <!--<input type="text" class="form-control" id="engineCapacity" formControlName="engineCapacity" aria-describedby="engineCapacityHelp" placeholder="Enter Engine Capacity">-->
+      <!--<div  class="input-group-append">-->
+      <!--<span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">cc</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<small id="engineCapacityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="transmission">Transmission</label>-->
+      <!--<select class="browser-default custom-select form-control" id="transmission" formControlName="transmission">-->
+      <!--<option selected>Select vehicle transmission</option>-->
+      <!--<option value="manual">Manual</option>-->
+      <!--<option value="automatic">Automatic</option>-->
+      <!--<option value="triptronic">Triptronic</option>-->
+      <!--</select>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="fuelType">Fuel Type</label>-->
+      <!--<select class="browser-default custom-select form-control" id="fuelType" formControlName="fuelType">-->
+      <!--<option selected>Select fuel type</option>-->
+      <!--<option value="Petrol">Petrol</option>-->
+      <!--<option value="diesel">Diesel</option>-->
+      <!--<option value="hybrid">Hybrid</option>-->
+      <!--<option value="electric">Electric</option>-->
+      <!--<option value="petrolTurbo">Petrol turbo</option>-->
+      <!--<option value="dieselTurbo">Diesel turbo</option>-->
+      <!--</select>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="chassisNumber">Chassis Number</label>-->
+      <!--<input type="text" class="form-control" id="chassisNumber" formControlName="chassisNumber" aria-describedby="chassisNumberHelp" placeholder="Enter Chassis Number">-->
+      <!--<small id="chassisNumberHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="vehicleNumber">Vehicle Number</label>-->
+      <!--<input type="text" class="form-control" id="vehicleNumber" formControlName="vehicleNumber" aria-describedby="vehicleNumberHelp" placeholder="Enter Vehicle Number">-->
+      <!--<small id="vehicleNumberHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="registeredYear">Registered Year</label>-->
+      <!--<input type="text" class="form-control" id="registeredYear" formControlName="registeredYear" aria-describedby="registeredYearHelp" placeholder="Enter Registered Year">-->
+      <!--<small id="registeredYearHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="currentMileage">Current Mileage</label>-->
+      <!--<div class="input-group">-->
+      <!--<input type="text" class="form-control" id="currentMileage" formControlName="currentMileage" aria-describedby="currentMileageHelp" placeholder="Enter Current Mileage">-->
+      <!--<div  class="input-group-append">-->
+      <!--<span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<small id="currentMileageHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="lastEngineOilChange">Last Engine Oil Change</label>-->
+      <!--<div class="input-group">-->
+      <!--<input type="text" class="form-control" id="lastEngineOilChange" formControlName="lastEngineOilChange" aria-describedby="lastEngineOilChangeHelp" placeholder="Enter Last Engine Oil Change">-->
+      <!--<div  class="input-group-append">-->
+      <!--<span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<small id="lastEngineOilChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="lastEngineOilFilterChange">Last Engine Oil Filter Change</label>-->
+      <!--<div class="input-group">-->
+      <!--<input type="text" class="form-control" id="lastEngineOilFilterChange" formControlName="lastEngineOilFilterChange" aria-describedby="lastEngineOilFilterChangeHelp" placeholder="Enter Last Engine Oil Filter Change">-->
+      <!--<div  class="input-group-append">-->
+      <!--<span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<small id="lastEngineOilFilterChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="lastGearOilChange">Last Gear Oil Change</label>-->
+      <!--<div class="input-group">-->
+      <!--<input type="text" class="form-control" id="lastGearOilChange" formControlName="lastGearOilChange" aria-describedby="clastGearOilChangeHelp" placeholder="Enter Last Gear Oil Change">-->
+      <!--<div  class="input-group-append">-->
+      <!--<span style="background-color: #1b1e21!important;color: white!important;" class="input-group-text">Kms</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<small id="lastGearOilChangeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+      <!--<label for="file">Upload Vehicle Image</label>-->
+      <!--<input (change)="fileChange($event)" formControlName="file" type="file" class="form-control" id="file"-->
+      <!--placeholder="Upload Vehicle Image">-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+      <!--<label for="exampleInputPassword1">Password</label>-->
+      <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+      <!--</div>-->
+      <!--<div class="form-check">-->
+      <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+      <!--<label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+      <!--</div>-->
+      <div>
+        <button style="margin-right: 200px" (click)="onUpdateAdminCar(adminCarUpdateForm.value)" [disabled]="!adminCarUpdateForm.valid" type="button"
+                class="btn btn-outline-success float-right">Update Vehicle Details
+        </button>
+      </div>
+      <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+    </form>
+  </div>
+</div>
