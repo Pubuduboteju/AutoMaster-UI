@@ -1,7 +1,7 @@
 # AutoMaster-UI
 Frontend of this project has been developed by Angular. To run the application, you need 
-1.	NodeJS 10 or above.
-2.	Angular CLI 8 or above
+- NodeJS 10 or above.
+- Angular CLI 8 or above
 
 Database configuration for Firebase
 
