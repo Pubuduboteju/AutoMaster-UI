@@ -55,6 +55,7 @@ import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire";
 import { ServiceStationsComponent } from './page/admin/service-stations/service-stations.component';
 import { ServiceAppointmentsComponent } from './page/admin/service-appointments/service-appointments.component';
+import { CarRecommenderComponent } from './page/car-recommender/car-recommender.component';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import { ServiceAppointmentsComponent } from './page/admin/service-appointments/
     GeneralUserMessagesComponent,
     AdminUserCommentsComponent,
     ServiceStationsComponent,
-    ServiceAppointmentsComponent
+    ServiceAppointmentsComponent,
+    CarRecommenderComponent
   ],
   imports: [
     FormsModule,

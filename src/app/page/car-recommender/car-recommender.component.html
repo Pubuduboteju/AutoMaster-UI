@@ -1,0 +1,473 @@
+<div style="margin:50px;">
+  <div style="background-color: #1b1e21; color: white" class="alert alert-info"><b><h4>Welcome To Vehicle Recommendation Service</h4></b></div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <!--<select ng-model="selectedName" ng-options="item for item in names">Select vehicle model</select>-->
+    <!--<select id="ms_series" name="ms_series" (change)="carOnChange($event.target.value)" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 300px">-->
+      <!--<option>Vehicle Model</option>-->
+      <!--<option style="width: 60px;" *ngFor="let car1 of cars" [value]="car1.id">{{car1.vehicleModel}}</option>-->
+    <!--</select>-->
+  </div>
+  <br>
+  <div><h4> Enter Your Details Here</h4></div>
+  <br>
+  <div>
+    <form class="validate-form form-group" novalidate [formGroup]="createVehicleRecoForm">
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Gender :</div>
+          </div>
+          <!--<input disabled="disabled" style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="Name">-->
+
+          <input class=" form-control-sm " type="radio" formControlName="gender" id="male" name="gender" value="male">
+          <label class=" form-control-sm " for="male">Male</label><br>
+          <input class=" form-control-sm " type="radio" formControlName="gender" id="female" name="gender" value="female">
+          <label class=" form-control-sm " for="female">Female</label><br>
+          <input class=" form-control-sm " type="radio" formControlName="gender" id="other" name="gender" value="other">
+          <label class=" form-control-sm " for="other">Other</label>
+
+        </div>
+
+
+        <!--<div class="form-group input-group col-md-3">-->
+          <!--<div class="input-group-prepend">-->
+            <!--<div style="background-color: black; color: white;  border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Commenting on :</div>-->
+          <!--</div>-->
+          <!--<input disabled style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control" type="text" formControlName="vehicleName" placeholder="vehicle Name">-->
+        <!--</div>-->
+        <!--<div class="form-group input-group col-md-4">-->
+          <!--<div class="input-group-prepend">-->
+            <!--<div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Rate this vehicle :</div>-->
+          <!--</div>-->
+          <!--<div style="text-align:center">-->
+            <!--<star-rating value="1" checkedcolor="orange" uncheckedcolor="white" size="24px"    readonly="false" (rate)="onRate($event)"></star-rating>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group col-md-6">-->
+        <!--<textarea style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent"  class=" form-control " type="text" formControlName="comment" placeholder="Wrtite your comment here"></textarea>-->
+        <!--</div>-->
+        <!--<div class="form-group col-md-2">-->
+        <!--<div class="container-login100-form-btn  float-right">-->
+        <!--<button style="" (click)="onCreateNewComment(newUserCommentForm.value)" [disabled]="!newUserCommentForm.valid" class="btn btn-outline-success my-2 my-sm-0">-->
+        <!--<i class="fas fa-comment-dots"></i>  Write Comment-->
+        <!--</button>-->
+        <!--</div>-->
+        <!--</div>-->
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Profession/Occupation :</div>
+          </div>
+          <input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="job" placeholder="eg: Engineer, Lecturer">
+
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Age Group :</div>
+          </div>
+          <!--<input disabled="disabled" style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="eg: Engineer, Lecturer">-->
+          <select id="ms_series" name="ms_series" formControlName="ageGroup" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 150px; background-color: black; border-color: transparent">
+            <option>Vehicle Model</option>
+            <!--<option style="width: 60px;" *ngFor="let car1 of cars" [value]="car1.id">{{car1.vehicleModel}}</option>-->
+            <!--<option [value]="20_30"> 20 - 30 </option>-->
+            <option value="20 - 30"> 20 - 30 </option>
+            <option value="30 - 40"> 30 - 40 </option>
+            <option value="40 - 50"> 40 - 50 </option>
+            <option value="50 - 60"> 50 - 60 </option>
+            <option value="60 above"> 60 above </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Monthly Income :</div>
+          </div>
+          <!--<input disabled="disabled" style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="eg: Engineer, Lecturer">-->
+          <select id="ms_series" name="ms_series" formControlName="monthlyIncome" class="ng-pristine ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-touched browser-default custom-select" style="max-width: 150px; background-color: black; border-color: transparent">
+            <option>Vehicle Model</option>
+            <!--<option style="width: 60px;" *ngFor="let car1 of cars" [value]="car1.id">{{car1.vehicleModel}}</option>-->
+            <!--<option [value]="Below 40k" > Below 40k </option>-->
+            <option value="Below 40k" > Below 40k </option>
+            <option value="40k - 80k" > 40k - 80k </option>
+            <option value="80k - 120k"> 80k - 120k </option>
+            <option value="120k - 160k"> 120k - 160k </option>
+            <option value="160k - 200k"> 160k - 200k </option>
+            <option value="200k - 240k"> 200k - 240k </option>
+            <option value="240k above"> 240k above </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">No. of members in your family :</div>
+          </div>
+          <input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="noOfFamMembers" placeholder="eg: Engineer, Lecturer">
+
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">I am a branded person/ going behind vehicle brands like Benz, BMW etc. And use vehicles to show prestige? :</div>
+          </div>
+          <!--<input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="eg: Engineer, Lecturer">-->
+          <label class="form-control-sm">Strongly Agree</label>
+          <input class=" form-control-sm " formControlName="brandedPerson" type="radio" id="1" name="1" value="1">
+          <label class=" form-control-sm " for="1">1</label><br>
+          <input class=" form-control-sm " formControlName="brandedPerson" type="radio" id="2" name="2" value="2">
+          <label class=" form-control-sm " for="2">2</label><br>
+          <input class=" form-control-sm " formControlName="brandedPerson" type="radio" id="3" name="3" value="3">
+          <label class=" form-control-sm " for="3">3</label>
+          <input class=" form-control-sm " formControlName="brandedPerson" type="radio" id="4" name="4" value="4">
+          <label class=" form-control-sm " for="4">4</label>
+          <input class=" form-control-sm " formControlName="brandedPerson" type="radio" id="5" name="5" value="5">
+          <label class=" form-control-sm " for="5">5</label>
+          <label class="form-control-sm">Not at all</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Generally, how long you use a vehicle? :</div>
+          </div>
+          <input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="howLongUseVehicle" placeholder="eg: 2, 3">
+
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">I consider about the money I spend on fuel :</div>
+          </div>
+          <!--<input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="eg: Engineer, Lecturer">-->
+          <label class="form-control-sm">Strongly Agree</label>
+          <input class=" form-control-sm " formControlName="considerMoneySpendOnFuel" type="radio" id="1" name="1" value="1">
+          <label class=" form-control-sm " for="1">1</label><br>
+          <input class=" form-control-sm " formControlName="considerMoneySpendOnFuel" type="radio" id="2" name="2" value="2">
+          <label class=" form-control-sm " for="2">2</label><br>
+          <input class=" form-control-sm " formControlName="considerMoneySpendOnFuel" type="radio" id="3" name="3" value="3">
+          <label class=" form-control-sm " for="3">3</label>
+          <input class=" form-control-sm " formControlName="considerMoneySpendOnFuel" type="radio" id="4" name="4" value="4">
+          <label class=" form-control-sm " for="4">4</label>
+          <input class=" form-control-sm " formControlName="considerMoneySpendOnFuel" type="radio" id="5" name="5" value="5">
+          <label class=" form-control-sm " for="5">5</label>
+          <label class="form-control-sm">Not at all</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Average kms you drive per month? :</div>
+          </div>
+          <input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="avgKmsPerDriveMonth" placeholder="eg: 2, 3">
+
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Are you a person who really enjoy driving / expects driving pleasure / a Petrolhead? :</div>
+          </div>
+          <!--<input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="eg: Engineer, Lecturer">-->
+          <label class="form-control-sm">Strongly Agree</label>
+          <input class=" form-control-sm " formControlName="petrolhead" type="radio" id="1" name="1" value="1">
+          <label class=" form-control-sm " for="1">1</label><br>
+          <input class=" form-control-sm " formControlName="petrolhead" type="radio" id="2" name="2" value="2">
+          <label class=" form-control-sm " for="2">2</label><br>
+          <input class=" form-control-sm " formControlName="petrolhead" type="radio" id="3" name="3" value="3">
+          <label class=" form-control-sm " for="3">3</label>
+          <input class=" form-control-sm " formControlName="petrolhead" type="radio" id="4" name="4" value="4">
+          <label class=" form-control-sm " for="4">4</label>
+          <input class=" form-control-sm " formControlName="petrolhead" type="radio" id="5" name="5" value="5">
+          <label class=" form-control-sm " for="5">5</label>
+          <label class="form-control-sm">Not at all</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-5">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">I consider about the resale value (Second hand market value) of the vehicle I buy :</div>
+          </div>
+          <!--<input  style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class=" form-control " type="text" formControlName="userName" placeholder="eg: Engineer, Lecturer">-->
+          <label class="form-control-sm">Strongly Agree</label>
+          <input class=" form-control-sm " formControlName="considerResaleValue" type="radio" id="1" name="1" value="1">
+          <label class=" form-control-sm " for="1">1</label><br>
+          <input class=" form-control-sm " formControlName="considerResaleValue" type="radio" id="2" name="2" value="2">
+          <label class=" form-control-sm " for="2">2</label><br>
+          <input class=" form-control-sm " formControlName="considerResaleValue" type="radio" id="3" name="3" value="3">
+          <label class=" form-control-sm " for="3">3</label>
+          <input class=" form-control-sm " formControlName="considerResaleValue" type="radio" id="4" name="4" value="4">
+          <label class=" form-control-sm " for="4">4</label>
+          <input class=" form-control-sm " formControlName="considerResaleValue" type="radio" id="5" name="5" value="5">
+          <label class=" form-control-sm " for="5">5</label>
+          <label class="form-control-sm">Not at all</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group input-group col-md-10">
+          <div class="input-group-prepend">
+            <div style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent" class="input-group-text ">Why you use a car? :</div>
+          </div>
+          <input class="form-control-sm" formControlName="whyUseCar" type="checkbox" id="personalTrans" name="personalTrans" value="personalTrans">
+          <label class="form-control-sm" for="personalTrans"> For my personal transportation</label><br>
+          <input class="form-control-sm" formControlName="whyUseCar" type="checkbox" id="famCar" name="famCar" value="famCar">
+          <label class="form-control-sm" for="famCar"> As a family car</label><br>
+          <input class="form-control-sm" formControlName="whyUseCar" type="checkbox" id="taxiDriver" name="taxiDriver" value="taxiDriver">
+          <label class="form-control-sm" for="taxiDriver"> I'm a taxi driver</label><br>
+          <input class="form-control-sm" formControlName="whyUseCar" type="checkbox" id="collector" name="collector" value="collector">
+          <label class="form-control-sm" for="collector"> I'm a car collector</label><br>
+          <input class="form-control-sm" formControlName="whyUseCar" type="checkbox" id="other" name="other" value="other">
+          <label class="form-control-sm" for="other"> Other</label><br>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!--<div class="form-group col-md-10">-->
+          <!--<textarea style="background-color: black; color: white; border-right: transparent; border-left: transparent; border-top: transparent"  class=" form-control " type="text" formControlName="comment" placeholder="Wrtite your comment here"></textarea>-->
+        <!--</div>-->
+        <div class="form-group col-md-2">
+          <div class="container-login100-form-btn  float-right">
+            <!--<button style="" (click)="onGetRecommendation(createVehicleRecoForm.value)" [disabled]="!createVehicleRecoForm.valid" class="btn btn-outline-success my-2 my-sm-0">-->
+              <!--<i class="fas fa-comment-dots"></i>  Get Recommendation-->
+            <!--</button>-->
+            <button style="" (click)="onGetRecommendation(createVehicleRecoForm.value)"  class="btn btn-outline-success my-2 my-sm-0">
+              <i class="fas fa-comment-dots"></i>  Get Recommendation
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!--<input style="margin-right: 20px; max-width: 200px;" class=" form-control  mb-2" type="text" formControlName="userName" placeholder="Name">-->
+      <!--<input style="margin-right: 20px; max-width: 250px;" class=" form-control mx-sm-3 mb-2" type="text" formControlName="vehicleName" placeholder="vehicle Name">-->
+      <!--<input style="max-width: 500px;" class=" form-control mx-sm-3 mb-2" type="text" formControlName="comment" placeholder="Wrtite your comment here">-->
+      <!--<div class="container-login100-form-btn m-t-20 float-right">-->
+      <!--<button (click)="onCreateNewComment(newUserCommentForm.value)" [disabled]="!newUserCommentForm.valid" class="login100-form-btn">-->
+      <!--Create Comment-->
+      <!--</button>-->
+      <!--</div>-->
+    </form>
+  </div>
+
+  <!--<div *ngIf="car">-->
+    <!--<div>-->
+      <!--<div class="row">-->
+        <!--<div class="col-md-5">-->
+          <!--<img style="margin-left:300px;" class="card-img-top" [src]="car.image" alt="Card image cap">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row sticky" style="position: sticky">-->
+        <!--<div class="col-md-2"></div>-->
+        <!--<div class="col-md-8">-->
+          <!--<div id="menu-outer">-->
+            <!--<div style="padding-top: 20px;" >-->
+              <!--<div class="btn-group">-->
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('specifications').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-info-circle"></i> Specifications</button>-->
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('5000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-wrench"></i> Super Light Service</button>-->
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('10000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-tools"></i> Light Service</button>-->
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('20000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-cog"></i> Medium Service</button>-->
+                <!--<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('40000').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-cogs"></i> Heavy Service</button>-->
+                <!--&lt;!&ndash;<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('safety').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-user-shield"></i> Safety</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('interior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Interior</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button type="button" class="btn btn-outline-info my-2 my-sm-0" onClick="document.getElementById('exterior').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-eye"></i> Exterior</button>&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2"></div>-->
+      <!--</div>-->
+      <!--<div style="padding-top: 75px;" id="specifications">-->
+        <!--<h3 > {{car.vehicleModel}} Specifications</h3>-->
+        <!--<div class="card-body">-->
+          <!--&lt;!&ndash;<label>Vehicle name</label>&ndash;&gt;-->
+          <!--&lt;!&ndash;<h5 class="card-title float-right">{{car.name}}</h5>&ndash;&gt;-->
+          <!--&lt;!&ndash;<label>Details</label>&ndash;&gt;-->
+          <!--&lt;!&ndash;<p class="card-text">{{car.description}}</p>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;<p>{{car.id}}</p>&ndash;&gt;-->
+          <!--&lt;!&ndash;<p>{{car.name}}</p>&ndash;&gt;-->
+          <!--&lt;!&ndash;<p>{{car.description}}</p>&ndash;&gt;-->
+          <!--<table style="width: 1000px;" class="table">-->
+            <!--<tbody>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Vehicle Model</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;"><b>{{car.vehicleModel}}</b></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Vehicle Make</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;">{{car.vehicleMake}}</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Trim/Edition</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;">{{car.trim_edition}}</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Model Year</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;">{{car.modelYear}}</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Body Type</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;">{{car.bodyType}}</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Engine Capacity</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;">{{car.engineCapacity}}</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Transmission</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;">{{car.transmission}}</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="max-width: 200px!important;"><b>Fuel Type</b></td>-->
+              <!--<td style="margin-left: 0px; padding-left: 0px;">{{car.fuelType}}</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+          <!--</table>-->
+
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;Maintenance data&ndash;&gt;-->
+      <!--<div class="row">-->
+        <!--<div class="col-md-10">-->
+          <!--<div  style="padding-top: 75px;" id="5000">-->
+            <!--<h3>{{car.vehicleModel}} - Super Light Service (Every 5,000 kms)</h3>-->
+            <!--<br>-->
+            <!--<h5 style="color: green">Basic level of service</h5>-->
+            <!--<div>-->
+              <!--<ul>-->
+                <!--<li>Replace engine oil and filter</li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="table-responsive" >&ndash;&gt;-->
+            <!--&lt;!&ndash;<table class="table">&ndash;&gt;-->
+            <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Length mm</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)!important;">4060</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Width mm</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">1715</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Height mm</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">1490</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Seating Capacity</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">05</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Gross Vehicle Weight kg</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">1576.00</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Cargo Capacity L</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">0484</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Fuel Consumption - City km/l</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">12</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Fuel Consumption - Highway km/l</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">16</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Fuel Consumption - Combined km/l</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">14</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Horsepower (kW)</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">109</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><b>Turning Circle m.</b></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td style="color: rgba(82, 179, 217, 1)">9.6</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
+            <!--&lt;!&ndash;</table>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--</div>-->
+          <!--<div  style="padding-top: 75px;" id="10000">-->
+            <!--<h3 >{{car.vehicleModel}} - Light Service (Every 10,000 kms)</h3>-->
+            <!--<br>-->
+            <!--<div >-->
+              <!--<h5 style="color: green">Includes Super Light Service, plus:</h5>-->
+              <!--<div>-->
+                <!--<ul>-->
+                  <!--<li>Check installation of driver's floor mat</li>-->
+                  <!--<li>Check for open campaigns/recalls</li>-->
+                  <!--<li>Rotate tires and check condition (tread depth)</li>-->
+                  <!--<li>Set tire pressures to correct PSI</li>-->
+                  <!--<li>Check that all exterior light bulbs are functioning</li>-->
+                  <!--<li>Inspect front and rear brake components</li>-->
+                  <!--<li>Inspect and top off fluid levels</li>-->
+                  <!--<li>Perform multi-point inspection with print-out</li>-->
+                  <!--<li>Road test of vehicle</li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div  style="padding-top: 75px;" id="20000">-->
+            <!--<h3 >{{car.vehicleModel}} - Medium Service (Every 20,000 kms)</h3>-->
+            <!--<br>-->
+            <!--<div >-->
+              <!--<h5 style="color: green">Includes Super Light and Light Services, plus:</h5>-->
+              <!--<div>-->
+                <!--<ul>-->
+                  <!--<li>Inspect condition of drive axle boots</li>-->
+                  <!--<li>Check condition of brake fluid</li>-->
+                  <!--<li>Check transfer case and differential fluids</li>-->
+                  <!--<li>Check operation of cooling system and/or indication of coolant leak</li>-->
+                  <!--<li>Complete inspection of steering and suspension components</li>-->
+                  <!--<li>Complete inspection of exhaust system</li>-->
+                  <!--<li>Inspect air filter</li>-->
+                  <!--<li>Inspect wiper inserts/blades</li>-->
+                  <!--<li>Inspect cabin air filter (if applicable)</li>-->
+                  <!--<li>Lubricate propeller shaft (where applicable)</li>-->
+                  <!--<li>Inspect fuel lines and charcoal canister</li>-->
+                  <!--<li>Reset maintenance/tire pressure warning lights</li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div  style="padding-top: 75px;" id="40000">-->
+            <!--<h3 >{{car.vehicleModel}} - Heavy Service (Every 40,000 kms)</h3>-->
+            <!--<br>-->
+            <!--<div >-->
+              <!--<h5 style="color: green">Includes Super Light, Light, and Medium Services, plus:</h5>-->
+              <!--<div>-->
+                <!--<ul>-->
+                  <!--<li>Engine tune up</li>-->
+                  <!--<li>Inspect ignition wires and distributor cap</li>-->
+                  <!--<li>Replace air filter</li>-->
+                  <!--<li>Replace cabin air filter (if applicable)</li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;Maintenance data&ndash;&gt;-->
+    <!--</div>-->
+
+  <!--</div>-->
+</div>
+

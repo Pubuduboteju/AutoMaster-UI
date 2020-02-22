@@ -33,6 +33,7 @@ import {GeneralUserMessagesComponent} from "./page/admin/general-user-messages/g
 import {AdminUserCommentsComponent} from "./page/admin/admin-user-comments/admin-user-comments.component";
 import {ServiceStationsComponent} from "./page/admin/service-stations/service-stations.component";
 import {ServiceAppointmentsComponent} from "./page/admin/service-appointments/service-appointments.component";
+import {CarRecommenderComponent} from "./page/car-recommender/car-recommender.component";
 
 
 const routes: Routes = [
@@ -125,6 +126,10 @@ const routes: Routes = [
       {
         path: 'vehicle-maintenance',
         component: VehicleMaintenanceComponent
+      },
+      {
+        path: 'car-recommender',
+        component: CarRecommenderComponent
       }
       // {
       //   path: 'user-car-card',component:UserCarCardComponent,

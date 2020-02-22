@@ -118,4 +118,20 @@ export interface Dimensions{
 
 }
 
+export interface RecommendationInputs{
+  id:String
+  gender: String;
+  job: String;
+  ageGroup: String;
+  monthlyIncome: String;
+  noOfFamMembers:number;
+  brandedPerson:number;
+  howLongUseVehicle:number;
+  considerMoneySpendOnFuel:number;
+  avgKmsPerDriveMonth:number;
+  petrolhead:number;
+  considerResaleValue:number;
+  whyUseCar:String;
+}
+
 
