@@ -34,6 +34,7 @@ import {AdminUserCommentsComponent} from "./page/admin/admin-user-comments/admin
 import {ServiceStationsComponent} from "./page/admin/service-stations/service-stations.component";
 import {ServiceAppointmentsComponent} from "./page/admin/service-appointments/service-appointments.component";
 import {CarRecommenderComponent} from "./page/car-recommender/car-recommender.component";
+import {CarRecommenderBodyTypeComponent} from "./page/car-recommender/car-recommender-body-type/car-recommender-body-type.component";
 
 
 const routes: Routes = [
@@ -129,7 +130,10 @@ const routes: Routes = [
       },
       {
         path: 'car-recommender',
-        component: CarRecommenderComponent
+        component: CarRecommenderComponent,
+        children:[
+          {path: 'car-recommender-body-type', component:CarRecommenderBodyTypeComponent}
+        ]
       }
       // {
       //   path: 'user-car-card',component:UserCarCardComponent,

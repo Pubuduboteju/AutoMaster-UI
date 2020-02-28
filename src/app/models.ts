@@ -134,4 +134,32 @@ export interface RecommendationInputs{
   whyUseCar:String;
 }
 
+export interface RecommendationBodyTypeInputs{
+  id:String
+  sedan: String;
+  saloon: String;
+  hatchback: String;
+  suv: String;
+  coupe: String;
+}
+
+export interface FinalCarRecoResults{
+  id:String
+  careModel: String;
+  carValue: number;
+  vehicleModel;
+  make: String;
+  bodyType: String;
+  fuelType: String;
+  drivingPerformance: number;
+  safety: number;
+  seatingCapacity: number;
+  comfortRide: number;
+  fuelEconomy: number;
+  luxuryLook: number;
+  sportyDesign: number;
+  prestige: number;
+  marketValue: number;
+}
+
 

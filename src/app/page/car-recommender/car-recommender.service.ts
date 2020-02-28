@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from "rxjs/index";
-import {RecommendationInputs} from "../../models";
+import {RecommendationBodyTypeInputs, RecommendationInputs} from "../../models";
 import {environment} from "../../../environments/environment";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,15 @@ export class CarRecommenderService {
           'Accept': 'application/json'
         }),
     });
+  }
+
+
+  getCarRecommendation(value:any): Observable<RecommendationBodyTypeInputs> {
+
+    const URL = environment.host + '/carRecommender/bodyType?sedan='+value.sedan+'&saloon='+value.saloon+'&hatchback='+value.hatchback+'&suv='+value.suv+'&coupe='+value.coupe;
+    return this._httpClient.get<RecommendationBodyTypeInputs[]>(URL)
+      .pipe(
+        map(value => value['content']),
+      );
   }
 }

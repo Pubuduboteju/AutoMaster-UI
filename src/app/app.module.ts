@@ -56,6 +56,7 @@ import {AngularFireModule} from "@angular/fire";
 import { ServiceStationsComponent } from './page/admin/service-stations/service-stations.component';
 import { ServiceAppointmentsComponent } from './page/admin/service-appointments/service-appointments.component';
 import { CarRecommenderComponent } from './page/car-recommender/car-recommender.component';
+import { CarRecommenderBodyTypeComponent } from './page/car-recommender/car-recommender-body-type/car-recommender-body-type.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { CarRecommenderComponent } from './page/car-recommender/car-recommender.
     AdminUserCommentsComponent,
     ServiceStationsComponent,
     ServiceAppointmentsComponent,
-    CarRecommenderComponent
+    CarRecommenderComponent,
+    CarRecommenderBodyTypeComponent
   ],
   imports: [
     FormsModule,
