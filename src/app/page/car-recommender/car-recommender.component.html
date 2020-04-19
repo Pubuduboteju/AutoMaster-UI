@@ -475,11 +475,83 @@
     </div>
 
     <div style="color: white">
-      <div *ngFor="let finalCarRecoResult of finalCarRecoResults">
-        <p>{{finalCarRecoResult.careModel}}</p>
-        <p>{{finalCarRecoResult.carValue}}</p>
-        <p>_______________________________</p>
+      <!--<div *ngFor="let finalCarRecoResult of finalCarRecoResults">-->
+        <!--<p>{{finalCarRecoResult.careModel}}</p>-->
+        <!--<p>{{finalCarRecoResult.carValue}}</p>-->
+        <!--<p>_______________________________</p>-->
+      <!--</div>-->
 
+      <div>
+        <table class="table table-striped table-dark">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Model</th>
+            <th scope="col">Make</th>
+            <th scope="col">Body Type</th>
+            <th scope="col">Fuel Type</th>
+            <th scope="col">Driving Performance</th>
+            <th scope="col">Safety...</th>
+            <th scope="col">Seating Capacity</th>
+            <th scope="col">Comfort Ride</th>
+            <th scope="col">Fuel Economy</th>
+            <th scope="col">Luxury Look</th>
+            <th scope="col">Sporty Design</th>
+            <th scope="col">Prestige</th>
+            <th scope="col">Market Value (Mn)</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let finalCarRecoResult of finalCarRecoResults">
+            <th scope="row">1</th>
+            <td>{{finalCarRecoResult.vehicleModel}}</td>
+            <td>{{finalCarRecoResult.make}}</td>
+            <td>{{finalCarRecoResult.bodyType}}</td>
+            <td>{{finalCarRecoResult.fuelType}}</td>
+            <!--<td>{{finalCarRecoResult.drivingPerformance}}</td>-->
+            <td>  <div style="text-align:center;margin-left: 0px; margin-top: 0px; margin-right: 0px">
+              <star-rating value="{{finalCarRecoResult.drivingPerformance}}" checkedcolor="orange" uncheckedcolor="white" size="11px"    readonly="true" ></star-rating>
+            </div></td>
+            <!--<td>{{finalCarRecoResult.safety}}</td>-->
+            <td>  <div style="text-align:center;margin-left: 0px; margin-top: 0px;  margin-right: 0px">
+              <star-rating value="{{finalCarRecoResult.safety}}" checkedcolor="orange" uncheckedcolor="white" size="11px"    readonly="true" ></star-rating>
+            </div></td>
+            <td>{{finalCarRecoResult.seatingCapacity}}</td>
+            <!--<td>{{finalCarRecoResult.comfortRide}}</td>-->
+            <td>  <div style="text-align:center;margin-left: 0px; margin-top: 0px;  margin-right: 0px">
+              <star-rating value="{{finalCarRecoResult.comfortRide}}" checkedcolor="orange" uncheckedcolor="white" size="11px"    readonly="true" ></star-rating>
+            </div></td>
+            <!--<td>{{finalCarRecoResult.fuelEconomy}}</td>-->
+            <td>  <div style="text-align:center;margin-left: 0px; margin-top: 0px;  margin-right: 0px">
+              <star-rating value="{{finalCarRecoResult.fuelEconomy}}" checkedcolor="orange" uncheckedcolor="white" size="11px"    readonly="true" ></star-rating>
+            </div></td>
+            <!--<td>{{finalCarRecoResult.luxuryLook}}</td>-->
+            <td>  <div style="text-align:center;margin-left: 0px; margin-top: 0px;  margin-right: 0px">
+              <star-rating value="{{finalCarRecoResult.luxuryLook}}" checkedcolor="orange" uncheckedcolor="white" size="11px"    readonly="true" ></star-rating>
+            </div></td>
+            <!--<td>{{finalCarRecoResult.sportyDesign}}</td>-->
+            <td>  <div style="text-align:center;margin-left: 0px; margin-top: 0px;  margin-right: 0px">
+              <star-rating value="{{finalCarRecoResult.sportyDesign}}" checkedcolor="orange" uncheckedcolor="white" size="11px"    readonly="true" ></star-rating>
+            </div></td>
+            <td>  <div style="text-align:center;margin-left: 0px; margin-top: 0px;  margin-right: 0px">
+              <star-rating value="{{finalCarRecoResult.prestige}}" checkedcolor="orange" uncheckedcolor="white" size="11px"    readonly="true" ></star-rating>
+            </div></td>
+            <td>{{finalCarRecoResult.marketValue}}</td>
+          </tr>
+          <!--<tr>-->
+            <!--<th scope="row">2</th>-->
+            <!--<td>Jacob</td>-->
+            <!--<td>Thornton</td>-->
+            <!--<td>@fat</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<th scope="row">3</th>-->
+            <!--<td>Larry</td>-->
+            <!--<td>the Bird</td>-->
+            <!--<td>@twitter</td>-->
+          <!--</tr>-->
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

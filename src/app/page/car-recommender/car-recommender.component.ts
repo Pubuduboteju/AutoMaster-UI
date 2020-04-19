@@ -13,6 +13,7 @@ import {FinalCarRecoResults, RecommendationBodyTypeInputs, RecommendationInputs}
 export class CarRecommenderComponent implements OnInit {
 
   public bodyTypeResults: RecommendationBodyTypeInputs;
+  public beforeFinalCarRecoResults: FinalCarRecoResults[] = [];
   public finalCarRecoResults: FinalCarRecoResults[] = [];
   createVehicleRecoForm: FormGroup;
   createVehicleRecoBodyTypeForm: FormGroup;
@@ -53,9 +54,22 @@ export class CarRecommenderComponent implements OnInit {
     this.carRecommenderService.create(value)
       .subscribe(
         res => {
-          this.finalCarRecoResults = res.content;
+          // this.finalCarRecoResults = res.content;
+          var i:number = 0;
+          res.content.forEach(function (data) {
+            res.content[i].drivingPerformance = 6- data.drivingPerformance;
+            res.content[i].safety = 6 - data.safety;
+            res.content[i].comfortRide = 6 - data.comfortRide;
+            res.content[i].luxuryLook = 6 - data.luxuryLook;
+            res.content[i].sportyDesign = 6 - data.sportyDesign;
+            res.content[i].prestige = 6 - data.prestige;
+            i++;
+
+          });
+          this.beforeFinalCarRecoResults = res.content;
+
           console.log(res);
-          console.log(this.finalCarRecoResults);
+          console.log(this.beforeFinalCarRecoResults);
         }, error => {
           console.log(error);
         }
@@ -64,10 +78,87 @@ export class CarRecommenderComponent implements OnInit {
 
   getCarRecommendation(value: any) {
     this.carRecommenderService.getCarRecommendation(value)
-      .subscribe(res => {
+      .subscribe(
+        res => {
         this.bodyTypeResults=res;
-        console.log(res);
-      })
+        var i:number = 1;
+        let tempFinalCarRecoResults = [];
+        tempFinalCarRecoResults = this.beforeFinalCarRecoResults;
+        this.bodyTypeResults.forEach(function (data) {
+          if(i==1){
+            var j:number = 0;
+            tempFinalCarRecoResults.forEach( function (data1) {
+              if(data1.bodyType=="sedan"){
+                if(data=="Positive"){
+                  tempFinalCarRecoResults[j].carValue = data1.carValue + data1.carValue;
+                }if(data=="Negative") {
+                  // tempFinalCarRecoResults[j].carValue = data1.carValue - 0.6;
+                }
+              }
+              j++;
+            });
+          }
+          if(i==2){
+            var j:number = 0;
+            tempFinalCarRecoResults.forEach( function (data1) {
+              if(data1.bodyType=="saloon"){
+                if(data=="Positive"){
+                  tempFinalCarRecoResults[j].carValue = data1.carValue + data1.carValue;
+                }if(data=="Negative") {
+                  // tempFinalCarRecoResults[i - 1].carValue = data1.carValue -0.6;
+                }
+              }
+              j++;
+            });
+          }
+          if(i==3){
+            var j:number = 0;
+            tempFinalCarRecoResults.forEach( function (data1) {
+              if(data1.bodyType=="hatchback"){
+                if(data=="Positive"){
+                  tempFinalCarRecoResults[j].carValue = data1.carValue + data1.carValue;
+                }if(data=="Negative") {
+                  // tempFinalCarRecoResults[i-1].carValue = parseFloat(data1.carValue) - parseFloat(0.6);
+                }
+              }
+              j++;
+            });
+          }
+          if(i==4){
+            var j:number = 0;
+            tempFinalCarRecoResults.forEach( function (data1) {
+              if(data1.bodyType=="suv"){
+                if(data=="Positive"){
+                  tempFinalCarRecoResults[j].carValue = data1.carValue + data1.carValue;
+                }if(data=="Negative") {
+                  // tempFinalCarRecoResults[i-1].carValue = data1.carValue - 0.6;
+                }
+              }
+              j++;
+            });
+          }
+          if(i==5){
+            var j:number = 0;
+            tempFinalCarRecoResults.forEach( function (data1) {
+              if(data1.bodyType=="coupe"){
+                if(data=="Positive"){
+                  tempFinalCarRecoResults[j].carValue = data1.carValue + data1.carValue;
+                }if(data=="Negative") {
+                  // tempFinalCarRecoResults[i-1].carValue = parseFloat(data1.carValue) - parseFloat(0.6);
+                }
+              }
+              j++;
+            });
+          }
+          i++;
+        });
+        this.finalCarRecoResults = tempFinalCarRecoResults;
+        this.finalCarRecoResults.sort((a,b) => b.carValue - a.carValue);
+        console.log(this.finalCarRecoResults);
+      }, error => {
+          console.log(error);
+        }
+      );
 
   }
 
